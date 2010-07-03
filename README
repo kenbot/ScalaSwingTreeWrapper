@@ -1,2 +1,68 @@
 Scala Swing Tree Wrapper
+See discussion thread on Scala debate forum: http://scala-programming-language.1934581.n4.nabble.com/scala-swing-JTree-wrapper-design-td2004809.html#a2004809
+
+
+USE CASES
+JTrees are commonly used in several situations:
+- A small, fixed tree as a navigation mechanism
+- A graphical representation of some data structure in tree form.
+- As above, but editable: nodes can be edited, added, removed, and moved. (Also dragged and dropped)
+- A representation of the filesystem, nested into directories
+- A deeply nested, infinite, or cyclic graph structure that needs to be constructed lazily. This is particularly arduous in Java, but is easily supportable in Scala.
+
+MODEL REPRESENTATION
+In Scala Swing, the actual Swing XXXModel classes are hidden, and real collections of user objects are used.  For instance ListView[A] uses List[A] as its representation, and Table exposes what looks like a 2D Seq.
+
+While a tree has no natural Scala collection capable of displaying it, most user's tree structures will emerge naturally from their data structures, or with nested Products (ie case classes/tuples) or nested Seqs.  The only reasonable model representation, IMHO is to provide a root object, and a function that finds child nodes given another node.  This can easily allow for all the use cases above; our class signature is therefore:
+
+class Tree[A](root: A, children: A => Seq[A])
+
+// Usage examples:
+// Display filesystem
+new Tree[File](new File("."), f => if (f.isDirectory) f.listFiles else Seq.empty)
+
+// Recursively factorise all integers from 1 to 1000 (infinite depth):
+new Tree[Int](1000, n => 1 to n filter (n % _ == 0)}
+
+// Display some XML document
+new Tree[Node](<root><ch id="b">Foo</ch></root>, {_.child filterNot (_.text.trim.isEmpty)})
+
+TYPED OR UNTYPED?
+Many lists do not care about the type of their contents, or use nested containers and therefore have no common class between branch and leaf nodes.  However, there is enough chance that a user WILL care about the node type that it is still useful. An example is displaying the filesystem; each branch and leaf would be a directory or file respectively.
+
+SELECTION REPRESENTATION
+In Java Swing, a unit of selection in a JTree is a TreePath.  TreePath is basically a glorified List, and does not deserve to be propagated or wrapped in Scala.  scala.List[A] fits perfectly in this role.  However, it is probably appropriate to provide a type alias, such as:
+object Tree {type Path[A] = List[A]}
+
+NO BRAINERS
+Some design patterns can be directly copied from Tree's cousins, ListView and Table:
+- object selection {object paths; object rows}
+- class Tree.Renderer, Tree.AbstractRender, and Tree.GenericRenderer
+- Events:
+ComponentEvent
+  +-- TreeEvent[A]
+          +-- TreePathSelected[A]
+          +-- TreeExpansionEvent[A]
+          |      +-- TreeCollapsed[A]
+          |      +-- TreeExpanded[A]
+          |      +-- TreeWillCollapse[A]
+          |      +-- TreeWillExpand[A]
+          +-- TreeModelEvent[A]
+                  +-- TreeNodesChanged[A]
+                  +-- TreeNodesInserted[A]
+                  +-- TreeNodesRemove[A]
+                  +-- TreeStructureChanged[A]
+
+
+MATTERS REQUIRING FRAMEWORK-WIDE CONSIDERATION:
+- Drag And Drop, and Cell Editing are features which have Swing-wide implementation in Java, and need to be Scala-fied in a way that works for everything (especially Tree, Table and ListView), not just Tree.  I have some ideas for these, but it belongs in another thread, and should be treated as separate tasks.
+
+- There is a level of commonality between Tree, ListView, and Table which may need to be abstracted. For instance:
+    - Drag and drop (as above)
+    - Cell Editing (as above)
+    - Selection by rows
+    - Iteration through data model items
+    - Cell Renderers (currently my Tree.Renderers are almost verbatim cut-and-pasted from Table and ListView, suggesting that there is commonality requiring a higher level of abstraction)
+
+
 by Ken Scambler
