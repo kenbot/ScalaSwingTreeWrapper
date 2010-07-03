@@ -1,0 +1,350 @@
+setting 'ivy.default.settings.dir' to 'jar:file:/C:/Ken/Java/sbt/sbt-launch-0.7.3.jar!/org/apache/ivy/core/settings'
+setting 'ivy.basedir' to 'C:\Ken\Projects\ScalaSwingTreeWrapper\.'
+setting 'ivy.default.conf.dir' to 'jar:file:/C:/Ken/Java/sbt/sbt-launch-0.7.3.jar!/org/apache/ivy/core/settings'
+impossible to define new type: class not found: org.apache.ivy.plugins.version.PatternVersionMatcher in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.trigger.LogTrigger in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.resolver.VsftpResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.conflict.RegexpConflictManager in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.resolver.SshResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.resolver.VfsResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.resolver.SFTPResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.resolver.packager.PackagerResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.ant.AntCallTrigger in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.plugins.resolver.IvyRepResolver in [] nor Ivy classloader
+impossible to define new type: class not found: org.apache.ivy.ant.AntBuildTrigger in [] nor Ivy classloader
+impossible to define glob matcher: org.apache.ivy.plugins.matcher.GlobPatternMatcher was not found.
+setting 'java.runtime.name' to 'Java(TM) SE Runtime Environment'
+setting 'sun.boot.library.path' to 'C:\Ken\Java\jdk1.6.0_17\jre\bin'
+setting 'java.vm.version' to '14.3-b01'
+setting 'java.vm.vendor' to 'Sun Microsystems Inc.'
+setting 'java.vendor.url' to 'http://java.sun.com/'
+setting 'path.separator' to ';'
+setting 'java.vm.name' to 'Java HotSpot(TM) Client VM'
+setting 'file.encoding.pkg' to 'sun.io'
+setting 'sun.java.launcher' to 'SUN_STANDARD'
+setting 'user.country' to 'AU'
+setting 'sun.os.patch.level' to ''
+setting 'java.vm.specification.name' to 'Java Virtual Machine Specification'
+setting 'user.dir' to 'C:\Ken\Projects\ScalaSwingTreeWrapper'
+setting 'java.runtime.version' to '1.6.0_17-b04'
+setting 'java.awt.graphicsenv' to 'sun.awt.Win32GraphicsEnvironment'
+setting 'java.endorsed.dirs' to 'C:\Ken\Java\jdk1.6.0_17\jre\lib\endorsed'
+setting 'os.arch' to 'x86'
+setting 'java.io.tmpdir' to 'C:\Users\Ken\AppData\Local\Temp\'
+setting 'line.separator' to '
+'
+setting 'java.vm.specification.vendor' to 'Sun Microsystems Inc.'
+setting 'user.variant' to ''
+setting 'os.name' to 'Windows 7'
+setting 'sun.jnu.encoding' to 'Cp1252'
+setting 'java.library.path' to 'C:\Ken\Java\jdk1.6.0_17\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\CollabNet\Subversion Server;C:\Ken\Java\jdk1.6.0_17\bin;C:\Program Files (x86)\JavaFX\javafx-sdk1.2\bin;C:\Program Files (x86)\JavaFX\javafx-sdk1.2\emulator\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Ken\Java\scala-2.8.0.Beta1-prerelease\bin;C:\Program Files (x86)\Haskell Platform\2009.2.0.2\extralibs\bin;C:\Program Files (x86)\Haskell Platform\2009.2.0.2\bin;C:\Ken\Java\apache-ant-1.8.0RC1\bin;c:\ken\java\sbt;C:\ken\java\apache-maven-2.2.1\bin;C:\Program Files (x86)\Objective Caml\bin;C:\Program Files (x86)\Git\cmd'
+setting 'java.specification.name' to 'Java Platform API Specification'
+setting 'java.class.version' to '50.0'
+setting 'sun.management.compiler' to 'HotSpot Client Compiler'
+setting 'os.version' to '6.1'
+setting 'user.home' to 'C:\Users\Ken'
+setting 'user.timezone' to 'Australia/Sydney'
+setting 'java.awt.printerjob' to 'sun.awt.windows.WPrinterJob'
+setting 'file.encoding' to 'Cp1252'
+setting 'java.specification.version' to '1.6'
+setting 'java.class.path' to 'c:\Ken\Java\sbt\sbt-launch-0.7.3.jar'
+setting 'user.name' to 'Ken'
+setting 'java.vm.specification.version' to '1.0'
+setting 'java.home' to 'C:\Ken\Java\jdk1.6.0_17\jre'
+setting 'sun.arch.data.model' to '32'
+setting 'user.language' to 'en'
+setting 'java.specification.vendor' to 'Sun Microsystems Inc.'
+setting 'awt.toolkit' to 'sun.awt.windows.WToolkit'
+setting 'java.vm.info' to 'mixed mode, sharing'
+setting 'java.version' to '1.6.0_17'
+setting 'java.ext.dirs' to 'C:\Ken\Java\jdk1.6.0_17\jre\lib\ext;C:\Windows\Sun\Java\lib\ext'
+setting 'sun.boot.class.path' to 'C:\Ken\Java\jdk1.6.0_17\jre\lib\resources.jar;C:\Ken\Java\jdk1.6.0_17\jre\lib\rt.jar;C:\Ken\Java\jdk1.6.0_17\jre\lib\sunrsasign.jar;C:\Ken\Java\jdk1.6.0_17\jre\lib\jsse.jar;C:\Ken\Java\jdk1.6.0_17\jre\lib\jce.jar;C:\Ken\Java\jdk1.6.0_17\jre\lib\charsets.jar;C:\Ken\Java\jdk1.6.0_17\jre\classes'
+setting 'java.vendor' to 'Sun Microsystems Inc.'
+setting 'file.separator' to '\'
+setting 'java.vendor.url.bug' to 'http://java.sun.com/cgi-bin/bugreport.cgi'
+setting 'sun.io.unicode.encoding' to 'UnicodeLittle'
+setting 'sun.cpu.endian' to 'little'
+setting 'sun.desktop' to 'windows'
+setting 'sun.cpu.isalist' to 'pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86'
+setting 'ivy.default.ivy.user.dir' to 'C:\Users\Ken\.ivy2'
+setting 'ivy.home' to 'C:\Users\Ken\.ivy2'
+no default ivy user dir defined: set to C:\Users\Ken\.ivy2
+setting 'ivy.cache.dir' to 'C:\Users\Ken\.ivy2\cache'
+no default cache defined: set to C:\Users\Ken\.ivy2\cache
+setting 'ivy.basedir' to 'C:\Ken\Projects\ScalaSwingTreeWrapper\project\boot'
+setting 'basedir' to 'C:\Ken\Projects\ScalaSwingTreeWrapper\project\boot'
+setting 'scala' to '2.8.0.RC6'
+:: resolving dependencies :: org.scala-tools.sbt#boot-scala;1.0
+	confs: [default]
+	validate = true
+	refresh = false
+resolving dependencies for configuration 'default'
+== resolving dependencies for org.scala-tools.sbt#boot-scala;1.0 [default]
+loadData of org.scala-tools.sbt#boot-scala;1.0 of rootConf=default
+== resolving dependencies org.scala-tools.sbt#boot-scala;1.0->org.scala-lang#scala-compiler;2.8.0.RC6 [default->default]
+loadData of org.scala-lang#scala-compiler;2.8.0.RC6 of rootConf=default
+	using redefined-public to resolve org.scala-lang#scala-compiler;2.8.0.RC6
+redefined-public: Checking cache for: dependency: org.scala-lang#scala-compiler;2.8.0.RC6 {default=[default]}
+redefined-public: no namespace defined: using system
+	no ivy file in cache for org.scala-lang#scala-compiler;2.8.0.RC6: tried C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-compiler\ivy-2.8.0.RC6.xml
+redefined-public: no latest strategy defined: using default
+local: no namespace defined: using system
+	no ivy file in cache for org.scala-lang#scala-compiler;2.8.0.RC6: tried C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-compiler\ivy-2.8.0.RC6.xml
+	 trying C:\Users\Ken\.ivy2/local/org.scala-lang/scala-compiler/2.8.0.RC6/ivys/ivy.xml
+		tried C:\Users\Ken\.ivy2/local/org.scala-lang/scala-compiler/2.8.0.RC6/ivys/ivy.xml
+	local: resource not reachable for org.scala-lang#scala-compiler;2.8.0.RC6: res=C:\Users\Ken\.ivy2\local\org.scala-lang\scala-compiler\2.8.0.RC6\ivys\ivy.xml
+	 trying C:\Users\Ken\.ivy2/local/org.scala-lang/scala-compiler/2.8.0.RC6/jars/scala-compiler.jar
+		tried C:\Users\Ken\.ivy2/local/org.scala-lang/scala-compiler/2.8.0.RC6/jars/scala-compiler.jar
+	local: resource not reachable for org.scala-lang#scala-compiler;2.8.0.RC6: res=C:\Users\Ken\.ivy2\local\org.scala-lang\scala-compiler\2.8.0.RC6\jars\scala-compiler.jar
+	local: no ivy file nor artifact found for org.scala-lang#scala-compiler;2.8.0.RC6
+Maven2 Local: no namespace defined: using system
+	no ivy file in cache for org.scala-lang#scala-compiler;2.8.0.RC6: tried C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-compiler\ivy-2.8.0.RC6.xml
+	 trying file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6.pom
+		tried file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6.pom
+	Maven2 Local: resource not reachable for org/scala-lang#scala-compiler;2.8.0.RC6: res=file://C:/Users/Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6.pom
+	 trying file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6.jar
+		tried file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6.jar
+	Maven2 Local: resource not reachable for org/scala-lang#scala-compiler;2.8.0.RC6: res=file://C:/Users/Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6.jar
+	Maven2 Local: no ivy file nor artifact found for org.scala-lang#scala-compiler;2.8.0.RC6
+sbt-db: no namespace defined: using system
+	no ivy file in cache for org.scala-lang#scala-compiler;2.8.0.RC6: tried C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-compiler\ivy-2.8.0.RC6.xml
+	 trying http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.0.RC6/ivys/ivy.xml
+		tried http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.0.RC6/ivys/ivy.xml
+HTTP response status: 404 url=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.0.RC6/ivys/ivy.xml
+CLIENT ERROR: Not Found url=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.0.RC6/ivys/ivy.xml
+	sbt-db: resource not reachable for org.scala-lang#scala-compiler;2.8.0.RC6: res=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.0.RC6/ivys/ivy.xml
+	 trying http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.0.RC6/jars/scala-compiler.jar
+		tried http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.0.RC6/jars/scala-compiler.jar
+HTTP response status: 404 url=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.0.RC6/jars/scala-compiler.jar
+CLIENT ERROR: Not Found url=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.0.RC6/jars/scala-compiler.jar
+	sbt-db: resource not reachable for org.scala-lang#scala-compiler;2.8.0.RC6: res=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.0.RC6/jars/scala-compiler.jar
+	sbt-db: no ivy file nor artifact found for org.scala-lang#scala-compiler;2.8.0.RC6
+Maven Central: no namespace defined: using system
+	no ivy file in cache for org.scala-lang#scala-compiler;2.8.0.RC6: tried C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-compiler\ivy-2.8.0.RC6.xml
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6.pom
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6.pom
+	Maven Central: found md file for org.scala-lang#scala-compiler;2.8.0.RC6
+		=> http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6.pom (2.8.0.RC6)
+	parser = pom parser
+	no ivy file in cache for org.scala-lang#scala-compiler;2.8.0.RC6: tried C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-compiler\ivy-2.8.0.RC6.xml
+downloading http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6.pom ...
+	Maven Central: downloading http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6.pom
+		to C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-compiler\ivy-2.8.0.RC6.xml.original.part
+	[SUCCESSFUL ] org.scala-lang#scala-compiler;2.8.0.RC6!scala-compiler.pom(pom.original) (365ms)
+	 trying C:\Users\Ken\.ivy2/local/org.scala-lang/scala-compiler/2.8.0.RC6/jars/scala-compiler.jar
+		tried C:\Users\Ken\.ivy2/local/org.scala-lang/scala-compiler/2.8.0.RC6/jars/scala-compiler.jar
+	local: resource not reachable for org.scala-lang#scala-compiler;2.8.0.RC6: res=C:\Users\Ken\.ivy2\local\org.scala-lang\scala-compiler\2.8.0.RC6\jars\scala-compiler.jar
+	 trying file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6.jar
+		tried file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6.jar
+	Maven2 Local: resource not reachable for org/scala-lang#scala-compiler;2.8.0.RC6: res=file://C:/Users/Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6.jar
+	 trying http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.0.RC6/jars/scala-compiler.jar
+		tried http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.0.RC6/jars/scala-compiler.jar
+	sbt-db: resource not reachable for org.scala-lang#scala-compiler;2.8.0.RC6: res=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.0.RC6/jars/scala-compiler.jar
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6.jar
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6.jar
+	 trying C:\Users\Ken\.ivy2/local/org.scala-lang/scala-compiler/2.8.0.RC6/sources/scala-compiler-sources.jar
+		tried C:\Users\Ken\.ivy2/local/org.scala-lang/scala-compiler/2.8.0.RC6/sources/scala-compiler-sources.jar
+	local: resource not reachable for org.scala-lang#scala-compiler;2.8.0.RC6: res=C:\Users\Ken\.ivy2\local\org.scala-lang\scala-compiler\2.8.0.RC6\sources\scala-compiler-sources.jar
+	 trying file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6-sources.jar
+		tried file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6-sources.jar
+	Maven2 Local: resource not reachable for org/scala-lang#scala-compiler;2.8.0.RC6: res=file://C:/Users/Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6-sources.jar
+	 trying http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.0.RC6/sources/scala-compiler-sources.jar
+		tried http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.0.RC6/sources/scala-compiler-sources.jar
+HTTP response status: 404 url=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.0.RC6/sources/scala-compiler-sources.jar
+CLIENT ERROR: Not Found url=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.0.RC6/sources/scala-compiler-sources.jar
+	sbt-db: resource not reachable for org.scala-lang#scala-compiler;2.8.0.RC6: res=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.0.RC6/sources/scala-compiler-sources.jar
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6-sources.jar
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6-sources.jar
+source artifact found for org.scala-lang#scala-compiler;2.8.0.RC6
+	 trying C:\Users\Ken\.ivy2/local/org.scala-lang/scala-compiler/2.8.0.RC6/javadocs/scala-compiler-javadoc.jar
+		tried C:\Users\Ken\.ivy2/local/org.scala-lang/scala-compiler/2.8.0.RC6/javadocs/scala-compiler-javadoc.jar
+	local: resource not reachable for org.scala-lang#scala-compiler;2.8.0.RC6: res=C:\Users\Ken\.ivy2\local\org.scala-lang\scala-compiler\2.8.0.RC6\javadocs\scala-compiler-javadoc.jar
+	 trying file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6-javadoc.jar
+		tried file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6-javadoc.jar
+	Maven2 Local: resource not reachable for org/scala-lang#scala-compiler;2.8.0.RC6: res=file://C:/Users/Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6-javadoc.jar
+	 trying http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.0.RC6/javadocs/scala-compiler-javadoc.jar
+		tried http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.0.RC6/javadocs/scala-compiler-javadoc.jar
+HTTP response status: 404 url=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.0.RC6/javadocs/scala-compiler-javadoc.jar
+CLIENT ERROR: Not Found url=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.0.RC6/javadocs/scala-compiler-javadoc.jar
+	sbt-db: resource not reachable for org.scala-lang#scala-compiler;2.8.0.RC6: res=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.0.RC6/javadocs/scala-compiler-javadoc.jar
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6-javadoc.jar
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6-javadoc.jar
+HTTP response status: 404 url=http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6-javadoc.jar
+CLIENT ERROR: Not Found url=http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6-javadoc.jar
+	Maven Central: resource not reachable for org/scala-lang#scala-compiler;2.8.0.RC6: res=http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6-javadoc.jar
+	 trying http://scala-tools.org/repo-releases/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6-javadoc.jar
+		tried http://scala-tools.org/repo-releases/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6-javadoc.jar
+HTTP response status: 404 url=http://scala-tools.org/repo-releases/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6-javadoc.jar
+CLIENT ERROR: Not Found url=http://scala-tools.org/repo-releases/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6-javadoc.jar
+	Scala-Tools Maven2 Repository: resource not reachable for org/scala-lang#scala-compiler;2.8.0.RC6: res=http://scala-tools.org/repo-releases/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6-javadoc.jar
+	 trying http://scala-tools.org/repo-snapshots/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6-javadoc.jar
+		tried http://scala-tools.org/repo-snapshots/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6-javadoc.jar
+HTTP response status: 404 url=http://scala-tools.org/repo-snapshots/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6-javadoc.jar
+CLIENT ERROR: Not Found url=http://scala-tools.org/repo-snapshots/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6-javadoc.jar
+	Scala-Tools Maven2 Snapshots Repository: resource not reachable for org/scala-lang#scala-compiler;2.8.0.RC6: res=http://scala-tools.org/repo-snapshots/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6-javadoc.jar
+no javadoc artifact found for org.scala-lang#scala-compiler;2.8.0.RC6
+	default-cache: parsed downloaded md file for org.scala-lang#scala-compiler;2.8.0.RC6; parsed=org.scala-lang#scala-compiler;2.8.0.RC6
+	checking org.scala-lang#scala-compiler;2.8.0.RC6 from Maven Central against [none]
+	module revision kept as first found: org.scala-lang#scala-compiler;2.8.0.RC6 from Maven Central
+	found org.scala-lang#scala-compiler;2.8.0.RC6 in Maven Central
+== resolving dependencies org.scala-tools.sbt#boot-scala;1.0->org.scala-lang#scala-compiler;2.8.0.RC6 [default->runtime]
+loadData of org.scala-lang#scala-compiler;2.8.0.RC6 of rootConf=default
+== resolving dependencies org.scala-tools.sbt#boot-scala;1.0->org.scala-lang#scala-compiler;2.8.0.RC6 [default->compile]
+loadData of org.scala-lang#scala-compiler;2.8.0.RC6 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.8.0.RC6->org.scala-lang#scala-library;2.8.0.RC6 [compile->master(*)]
+loadData of org.scala-lang#scala-library;2.8.0.RC6 of rootConf=default
+	using redefined-public to resolve org.scala-lang#scala-library;2.8.0.RC6
+redefined-public: Checking cache for: dependency: org.scala-lang#scala-library;2.8.0.RC6 {compile=[compile(*), master(*)], runtime=[runtime(*)]}
+	no ivy file in cache for org.scala-lang#scala-library;2.8.0.RC6: tried C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-library\ivy-2.8.0.RC6.xml
+	no ivy file in cache for org.scala-lang#scala-library;2.8.0.RC6: tried C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-library\ivy-2.8.0.RC6.xml
+	 trying C:\Users\Ken\.ivy2/local/org.scala-lang/scala-library/2.8.0.RC6/ivys/ivy.xml
+		tried C:\Users\Ken\.ivy2/local/org.scala-lang/scala-library/2.8.0.RC6/ivys/ivy.xml
+	local: resource not reachable for org.scala-lang#scala-library;2.8.0.RC6: res=C:\Users\Ken\.ivy2\local\org.scala-lang\scala-library\2.8.0.RC6\ivys\ivy.xml
+	 trying C:\Users\Ken\.ivy2/local/org.scala-lang/scala-library/2.8.0.RC6/jars/scala-library.jar
+		tried C:\Users\Ken\.ivy2/local/org.scala-lang/scala-library/2.8.0.RC6/jars/scala-library.jar
+	local: resource not reachable for org.scala-lang#scala-library;2.8.0.RC6: res=C:\Users\Ken\.ivy2\local\org.scala-lang\scala-library\2.8.0.RC6\jars\scala-library.jar
+	local: no ivy file nor artifact found for org.scala-lang#scala-library;2.8.0.RC6
+	no ivy file in cache for org.scala-lang#scala-library;2.8.0.RC6: tried C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-library\ivy-2.8.0.RC6.xml
+	 trying file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6.pom
+		tried file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6.pom
+	Maven2 Local: resource not reachable for org/scala-lang#scala-library;2.8.0.RC6: res=file://C:/Users/Ken/.m2/repository/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6.pom
+	 trying file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6.jar
+		tried file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6.jar
+	Maven2 Local: resource not reachable for org/scala-lang#scala-library;2.8.0.RC6: res=file://C:/Users/Ken/.m2/repository/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6.jar
+	Maven2 Local: no ivy file nor artifact found for org.scala-lang#scala-library;2.8.0.RC6
+	no ivy file in cache for org.scala-lang#scala-library;2.8.0.RC6: tried C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-library\ivy-2.8.0.RC6.xml
+	 trying http://databinder.net/repo/org.scala-lang/scala-library/2.8.0.RC6/ivys/ivy.xml
+		tried http://databinder.net/repo/org.scala-lang/scala-library/2.8.0.RC6/ivys/ivy.xml
+HTTP response status: 404 url=http://databinder.net/repo/org.scala-lang/scala-library/2.8.0.RC6/ivys/ivy.xml
+CLIENT ERROR: Not Found url=http://databinder.net/repo/org.scala-lang/scala-library/2.8.0.RC6/ivys/ivy.xml
+	sbt-db: resource not reachable for org.scala-lang#scala-library;2.8.0.RC6: res=http://databinder.net/repo/org.scala-lang/scala-library/2.8.0.RC6/ivys/ivy.xml
+	 trying http://databinder.net/repo/org.scala-lang/scala-library/2.8.0.RC6/jars/scala-library.jar
+		tried http://databinder.net/repo/org.scala-lang/scala-library/2.8.0.RC6/jars/scala-library.jar
+HTTP response status: 404 url=http://databinder.net/repo/org.scala-lang/scala-library/2.8.0.RC6/jars/scala-library.jar
+CLIENT ERROR: Not Found url=http://databinder.net/repo/org.scala-lang/scala-library/2.8.0.RC6/jars/scala-library.jar
+	sbt-db: resource not reachable for org.scala-lang#scala-library;2.8.0.RC6: res=http://databinder.net/repo/org.scala-lang/scala-library/2.8.0.RC6/jars/scala-library.jar
+	sbt-db: no ivy file nor artifact found for org.scala-lang#scala-library;2.8.0.RC6
+	no ivy file in cache for org.scala-lang#scala-library;2.8.0.RC6: tried C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-library\ivy-2.8.0.RC6.xml
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6.pom
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6.pom
+	Maven Central: found md file for org.scala-lang#scala-library;2.8.0.RC6
+		=> http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6.pom (2.8.0.RC6)
+	parser = pom parser
+	no ivy file in cache for org.scala-lang#scala-library;2.8.0.RC6: tried C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-library\ivy-2.8.0.RC6.xml
+downloading http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6.pom ...
+	Maven Central: downloading http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6.pom
+		to C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-library\ivy-2.8.0.RC6.xml.original.part
+	[SUCCESSFUL ] org.scala-lang#scala-library;2.8.0.RC6!scala-library.pom(pom.original) (286ms)
+	 trying C:\Users\Ken\.ivy2/local/org.scala-lang/scala-library/2.8.0.RC6/jars/scala-library.jar
+		tried C:\Users\Ken\.ivy2/local/org.scala-lang/scala-library/2.8.0.RC6/jars/scala-library.jar
+	local: resource not reachable for org.scala-lang#scala-library;2.8.0.RC6: res=C:\Users\Ken\.ivy2\local\org.scala-lang\scala-library\2.8.0.RC6\jars\scala-library.jar
+	 trying file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6.jar
+		tried file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6.jar
+	Maven2 Local: resource not reachable for org/scala-lang#scala-library;2.8.0.RC6: res=file://C:/Users/Ken/.m2/repository/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6.jar
+	 trying http://databinder.net/repo/org.scala-lang/scala-library/2.8.0.RC6/jars/scala-library.jar
+		tried http://databinder.net/repo/org.scala-lang/scala-library/2.8.0.RC6/jars/scala-library.jar
+	sbt-db: resource not reachable for org.scala-lang#scala-library;2.8.0.RC6: res=http://databinder.net/repo/org.scala-lang/scala-library/2.8.0.RC6/jars/scala-library.jar
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6.jar
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6.jar
+	 trying C:\Users\Ken\.ivy2/local/org.scala-lang/scala-library/2.8.0.RC6/sources/scala-library-sources.jar
+		tried C:\Users\Ken\.ivy2/local/org.scala-lang/scala-library/2.8.0.RC6/sources/scala-library-sources.jar
+	local: resource not reachable for org.scala-lang#scala-library;2.8.0.RC6: res=C:\Users\Ken\.ivy2\local\org.scala-lang\scala-library\2.8.0.RC6\sources\scala-library-sources.jar
+	 trying file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6-sources.jar
+		tried file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6-sources.jar
+	Maven2 Local: resource not reachable for org/scala-lang#scala-library;2.8.0.RC6: res=file://C:/Users/Ken/.m2/repository/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6-sources.jar
+	 trying http://databinder.net/repo/org.scala-lang/scala-library/2.8.0.RC6/sources/scala-library-sources.jar
+		tried http://databinder.net/repo/org.scala-lang/scala-library/2.8.0.RC6/sources/scala-library-sources.jar
+HTTP response status: 404 url=http://databinder.net/repo/org.scala-lang/scala-library/2.8.0.RC6/sources/scala-library-sources.jar
+CLIENT ERROR: Not Found url=http://databinder.net/repo/org.scala-lang/scala-library/2.8.0.RC6/sources/scala-library-sources.jar
+	sbt-db: resource not reachable for org.scala-lang#scala-library;2.8.0.RC6: res=http://databinder.net/repo/org.scala-lang/scala-library/2.8.0.RC6/sources/scala-library-sources.jar
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6-sources.jar
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6-sources.jar
+source artifact found for org.scala-lang#scala-library;2.8.0.RC6
+	 trying C:\Users\Ken\.ivy2/local/org.scala-lang/scala-library/2.8.0.RC6/javadocs/scala-library-javadoc.jar
+		tried C:\Users\Ken\.ivy2/local/org.scala-lang/scala-library/2.8.0.RC6/javadocs/scala-library-javadoc.jar
+	local: resource not reachable for org.scala-lang#scala-library;2.8.0.RC6: res=C:\Users\Ken\.ivy2\local\org.scala-lang\scala-library\2.8.0.RC6\javadocs\scala-library-javadoc.jar
+	 trying file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6-javadoc.jar
+		tried file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6-javadoc.jar
+	Maven2 Local: resource not reachable for org/scala-lang#scala-library;2.8.0.RC6: res=file://C:/Users/Ken/.m2/repository/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6-javadoc.jar
+	 trying http://databinder.net/repo/org.scala-lang/scala-library/2.8.0.RC6/javadocs/scala-library-javadoc.jar
+		tried http://databinder.net/repo/org.scala-lang/scala-library/2.8.0.RC6/javadocs/scala-library-javadoc.jar
+HTTP response status: 404 url=http://databinder.net/repo/org.scala-lang/scala-library/2.8.0.RC6/javadocs/scala-library-javadoc.jar
+CLIENT ERROR: Not Found url=http://databinder.net/repo/org.scala-lang/scala-library/2.8.0.RC6/javadocs/scala-library-javadoc.jar
+	sbt-db: resource not reachable for org.scala-lang#scala-library;2.8.0.RC6: res=http://databinder.net/repo/org.scala-lang/scala-library/2.8.0.RC6/javadocs/scala-library-javadoc.jar
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6-javadoc.jar
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6-javadoc.jar
+javadoc artifact found for org.scala-lang#scala-library;2.8.0.RC6
+	default-cache: parsed downloaded md file for org.scala-lang#scala-library;2.8.0.RC6; parsed=org.scala-lang#scala-library;2.8.0.RC6
+	checking org.scala-lang#scala-library;2.8.0.RC6 from Maven Central against [none]
+	module revision kept as first found: org.scala-lang#scala-library;2.8.0.RC6 from Maven Central
+	found org.scala-lang#scala-library;2.8.0.RC6 in Maven Central
+== resolving dependencies org.scala-lang#scala-compiler;2.8.0.RC6->org.scala-lang#scala-library;2.8.0.RC6 [compile->compile(*)]
+loadData of org.scala-lang#scala-library;2.8.0.RC6 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.8.0.RC6->org.scala-lang#scala-library;2.8.0.RC6 [compile->default]
+loadData of org.scala-lang#scala-library;2.8.0.RC6 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.8.0.RC6->org.scala-lang#scala-library;2.8.0.RC6 [compile->runtime]
+loadData of org.scala-lang#scala-library;2.8.0.RC6 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.8.0.RC6->org.scala-lang#scala-library;2.8.0.RC6 [compile->compile]
+loadData of org.scala-lang#scala-library;2.8.0.RC6 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.8.0.RC6->org.scala-lang#scala-library;2.8.0.RC6 [compile->master]
+loadData of org.scala-lang#scala-library;2.8.0.RC6 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.8.0.RC6->org.scala-lang#scala-library;2.8.0.RC6 [runtime->runtime(*)]
+loadData of org.scala-lang#scala-library;2.8.0.RC6 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.8.0.RC6->org.scala-lang#scala-library;2.8.0.RC6 [runtime->compile]
+loadData of org.scala-lang#scala-library;2.8.0.RC6 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+== resolving dependencies org.scala-tools.sbt#boot-scala;1.0->org.scala-lang#scala-compiler;2.8.0.RC6 [default->master]
+loadData of org.scala-lang#scala-compiler;2.8.0.RC6 of rootConf=default
+== resolving dependencies org.scala-tools.sbt#boot-scala;1.0->org.scala-lang#scala-library;2.8.0.RC6 [default->default]
+loadData of org.scala-lang#scala-library;2.8.0.RC6 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+== resolving dependencies org.scala-tools.sbt#boot-scala;1.0->org.scala-lang#scala-library;2.8.0.RC6 [default->runtime]
+loadData of org.scala-lang#scala-library;2.8.0.RC6 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+== resolving dependencies org.scala-tools.sbt#boot-scala;1.0->org.scala-lang#scala-library;2.8.0.RC6 [default->compile]
+loadData of org.scala-lang#scala-library;2.8.0.RC6 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+== resolving dependencies org.scala-tools.sbt#boot-scala;1.0->org.scala-lang#scala-library;2.8.0.RC6 [default->master]
+loadData of org.scala-lang#scala-library;2.8.0.RC6 of rootConf=default
+default is loaded and no conf to load.  Skip loading
+Nbr of module to sort : 2
+Sort dependencies of : org.scala-lang#scala-compiler;2.8.0.RC6 / Number of dependencies = 2
+Sort dependencies of : org.scala-lang#scala-library;2.8.0.RC6 / Number of dependencies = 0
+Sort done for : org.scala-lang#scala-library;2.8.0.RC6
+Sort done for : org.scala-lang#scala-compiler;2.8.0.RC6
+Module descriptor is processed : org.scala-lang#scala-library;2.8.0.RC6
+	resolved ivy file produced in C:\Users\Ken\.ivy2\cache\resolved-org.scala-tools.sbt-boot-scala-1.0.xml
+:: downloading artifacts ::
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6.jar
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6.jar
+downloading http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6.jar ...
+	Maven Central: downloading http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.0.RC6/scala-compiler-2.8.0.RC6.jar
+		to C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-compiler\jars\scala-compiler-2.8.0.RC6.jar.part
+	[SUCCESSFUL ] org.scala-lang#scala-compiler;2.8.0.RC6!scala-compiler.jar (58459ms)
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6.jar
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6.jar
+downloading http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6.jar ...
+	Maven Central: downloading http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.0.RC6/scala-library-2.8.0.RC6.jar
+		to C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.8.0.RC6.jar.part
+	[SUCCESSFUL ] org.scala-lang#scala-library;2.8.0.RC6!scala-library.jar (40417ms)
+:: resolution report :: resolve 10460ms :: artifacts dl 98880ms
+Nbr of module to sort : 2
+Sort dependencies of : org.scala-lang#scala-compiler;2.8.0.RC6 / Number of dependencies = 2
+Sort dependencies of : org.scala-lang#scala-library;2.8.0.RC6 / Number of dependencies = 0
+Sort done for : org.scala-lang#scala-library;2.8.0.RC6
+Sort done for : org.scala-lang#scala-compiler;2.8.0.RC6
+Module descriptor is processed : org.scala-lang#scala-library;2.8.0.RC6
+	report for org.scala-tools.sbt#boot-scala;1.0 default produced in C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt-boot-scala-default.xml
+	resolve done (10460ms resolve - 98880ms download)
+:: retrieving :: org.scala-tools.sbt#boot-scala
+	checkUpToDate=true
+no explicit confs given for retrieve, using ivy file: C:\Users\Ken\.ivy2\cache\resolved-org.scala-tools.sbt-boot-scala-1.0.xml
+using ivy parser to parse C:\Users\Ken\.ivy2\cache\resolved-org.scala-tools.sbt-boot-scala-1.0.xml
+pre 1.3 ivy file: using exactOrRegexp as default matcher
+	confs: [default]
+	retrieving C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-compiler\jars\scala-compiler-2.8.0.RC6.jar
+		to C:\Ken\Projects\ScalaSwingTreeWrapper\project\boot\scala-2.8.0.RC6\lib\scala-compiler.jar
+	retrieving C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.8.0.RC6.jar
+		to C:\Ken\Projects\ScalaSwingTreeWrapper\project\boot\scala-2.8.0.RC6\lib\scala-library.jar
+	2 artifacts copied, 0 already retrieved (14501kB/97ms)
+	retrieve done (97ms)
