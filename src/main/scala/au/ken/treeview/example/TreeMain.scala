@@ -7,22 +7,33 @@ import Swing._
 import javax.swing.Icon
 import au.ken.treeview._
 import au.ken.treeview.event._
-
+import javax.swing.tree._
+import javax.swing._
 
 object TreeMain extends SimpleSwingApplication {
   import Tree._
   import java.io._
   import java.awt.Color
 
-  case class Person(name: String, subordinates: List[Person])
-  val persons = Person("John", List(Person("Jack", Nil), Person("Jill", List(Person("Betty", Nil)))))
+  case class Person(name: String, subordinates: List[Person]) {
+    override def toString() = name + (if (subordinates.nonEmpty) "(" + subordinates.mkString(", ") + ")" else "")
+  }
+  val persons = Person("Bob", Nil) :: Person("John", List(Person("Jack", Nil), Person("Jill", List(Person("Betty", Nil))))) :: Nil
   
-  val tree = new Tree[Person](persons, _.subordinates) { 
+  lazy val tree = new Tree[Person] { 
+    
+    treeData = TreeData[Person](persons, _.subordinates)
+    val td: List[Person] = treeData.iterator.toList
+
+    
+    //renderer = Renderer(_.name)
+    
     editable = true
-    renderer = Renderer(_.name)
+    
+    //editor = Editor.wrap(new DefaultCellEditor(new JTextField))
     editor = Editor[Person, String](_.name, s => Person(s, Nil))
   }
-  
+
   class CheckBoxRenderer[A](convert: A => (Icon, Boolean)) extends Tree.AbstractRenderer[A, CheckBox](new CheckBox) {
     def this() = this(a => (null, Option(a).isDefined))
    
@@ -37,11 +48,20 @@ object TreeMain extends SimpleSwingApplication {
     import javax.swing.tree._
     setCellEditor(new DefaultTreeCellEditor(this, new DefaultTreeCellRenderer()))
     setEditable(true)
+    
+    setCellRenderer(new DefaultTreeCellRenderer() {
+      override def getTreeCellRendererComponent(tree: javax.swing.JTree, value: AnyRef, isSelected: Boolean, isExpanded: Boolean, 
+                                       isLeaf: Boolean, row: Int, hasFocus: Boolean) = {
+                                       
+        super.getTreeCellRendererComponent(tree, value, isSelected, isExpanded, isLeaf, row, hasFocus)
+      }
+    })
   }
   
   def top = new MainFrame {
-    contents = tree
-    listenTo(tree.editor, tree.selection, tree.mouse.clicks)
+    contents = tree //Component.wrap(javaTree)
+    
+    /*listenTo(tree.editor, tree.selection, tree.mouse.clicks)
       
     reactions += {
       case TreePathSelected(_, _, _, newSelection, _) => 
@@ -51,7 +71,7 @@ object TreeMain extends SimpleSwingApplication {
       case MouseClicked(tree, _, _, 2, _) => println("click!")
       
       case CellEditingStopped(source: CellEditor[_]) => println(source.value)
-    }
+    }*/
   }
 
   def xmlSeqTree = new Tree[Node](
@@ -92,11 +112,11 @@ object TreeMain extends SimpleSwingApplication {
     
     new Tree(Plus(Const(5), Minus(Const(2), Const(1))), products)
   }
-  /*
-  def nestedTupleTree = new Tree(Titled("Foods", (Titled("Legumes", ("Lentils", "Chick peas")), "Fruit", "Chips")), products)
-  def nestedListTree = new Tree(Titled("Numbers", 1 :: 2 :: 3 :: Titled("Them", (4 :: 5 :: 6 :: Nil)) :: Nil), products)
+
+  //def nestedTupleTree = new Tree(Titled("Foods", (Titled("Legumes", ("Lentils", "Chick peas")), "Fruit", "Chips")), products)
+  //def nestedListTree = new Tree(Titled("Numbers", 1 :: 2 :: 3 :: Titled("Them", (4 :: 5 :: 6 :: Nil)) :: Nil), products)
   
-  def nestedSeqTree = new Tree(Titled("Numbers", Seq(1, 2, 3, Titled("Them", Seq(4, 5, 6)))), seqs)*/
+  //def nestedSeqTree = new Tree(Titled("Numbers", Seq(1, 2, 3, Titled("Them", Seq(4, 5, 6)))), seqs)
   def infiniteFactorTree = Tree(10000) {n => 1 to n filter (n % _ == 0)}
   def fileTree = new Tree(new File("."), files)
   def filteredFileTree = new Tree(new File("."), filteredFiles(f => f.isDirectory || f.getName.endsWith(".scala")))

@@ -8,7 +8,7 @@ trait Cells[A] {
   val companion: CellsCompanion
 
   def editable: Boolean 
-  //def cellValues: Iterator[A]
+  def cellValues: Iterator[A]
   def renderer: companion.Renderer[A]
   def editor: companion.Editor[A]
 }

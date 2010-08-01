@@ -18,7 +18,7 @@ trait CellsCompanion {
     type Params
     val emptyParams: Params
     def wrap[A](r: Peer): Renderer[A]
-    def apply[A,B](f: A => B)(implicit renderer: Renderer[B]): Renderer[A]
+    def apply[A, B: Renderer](f: A => B): Renderer[A]
   }
 
   trait CellRenderer[-A] extends Publisher  { 
@@ -31,23 +31,33 @@ trait CellsCompanion {
     type Peer <: JCellEditor
     type Params
     val emptyParams: Params
-    def apply[A, B](toB: A => B, toA: B => A)(implicit editor: Editor[B]): Editor[A]
+    def apply[A, B: Editor](toB: A => B, toA: B => A): Editor[A]
   }
   
   trait CellEditor[A] extends Publisher with au.ken.treeview.CellEditor[A] {
     val companion: CellEditorCompanion
     def peer: companion.Peer
 
-    protected def addPeerListeners(p: JCellEditor) {
-      p.addCellEditorListener(new CellEditorListener {
-        override def editingCanceled(e: ChangeEvent) = publish(CellEditingStopped(CellEditor.this))
-        override def editingStopped(e: ChangeEvent) = publish(CellEditingCancelled(CellEditor.this))
+    protected def fireCellEditingCancelled() {publish(CellEditingCancelled(CellEditor.this))}
+    protected def fireCellEditingStopped() {publish(CellEditingStopped(CellEditor.this))}
+    
+    protected def chainToPeer(eventSource: JCellEditor) {
+      eventSource.addCellEditorListener(new CellEditorListener {
+        override def editingCanceled(e: ChangeEvent) = peer.cancelCellEditing()
+        override def editingStopped(e: ChangeEvent) = peer.stopCellEditing()
       })
     }
     
-    trait DefaultPeer extends JAbstractCellEditor {
-      def getCellEditorValue(): AnyRef = value.asInstanceOf[AnyRef]
-      addPeerListeners(this)
+    protected def listenToPeer(p: JCellEditor) {
+      p.addCellEditorListener(new CellEditorListener {
+        override def editingCanceled(e: ChangeEvent) {fireCellEditingCancelled()}
+        override def editingStopped(e: ChangeEvent) {fireCellEditingStopped()}
+      })
+    }
+
+    abstract class EditorPeer extends JAbstractCellEditor {
+      override def getCellEditorValue(): AnyRef = value.asInstanceOf[AnyRef]
+      listenToPeer(this)
     }
 
     def componentFor(owner: Owner[_], value: A, params: companion.Params = companion.emptyParams): Component
