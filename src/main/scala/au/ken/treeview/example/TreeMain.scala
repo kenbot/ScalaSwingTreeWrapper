@@ -26,7 +26,7 @@ object TreeMain extends SimpleSwingApplication {
     val td: List[Person] = treeData.iterator.toList
 
     
-    //renderer = Renderer(_.name)
+    renderer = Renderer(_.name)
     
     editable = true
     
@@ -34,6 +34,8 @@ object TreeMain extends SimpleSwingApplication {
     editor = Editor[Person, String](_.name, s => Person(s, Nil))
   }
 
+  tree.expandAll
+  
   class CheckBoxRenderer[A](convert: A => (Icon, Boolean)) extends Tree.AbstractRenderer[A, CheckBox](new CheckBox) {
     def this() = this(a => (null, Option(a).isDefined))
    
@@ -44,7 +46,7 @@ object TreeMain extends SimpleSwingApplication {
     }
   }
   
-  val javaTree = new javax.swing.JTree(Array("1", "2", "3", "4"): Array[Object]) {
+  val javaTree = new javax.swing.JTree(Array[Object]("1", "2", "3", "4")) {
     import javax.swing.tree._
     setCellEditor(new DefaultTreeCellEditor(this, new DefaultTreeCellRenderer()))
     setEditable(true)

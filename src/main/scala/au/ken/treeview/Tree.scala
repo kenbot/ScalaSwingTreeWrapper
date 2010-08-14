@@ -8,7 +8,7 @@ import javax.swing.{Icon, JComponent}
 import scala.swing.event._
 import javax.swing.event.CellEditorListener
 import scala.collection._
-import scala.collection.mutable.{ListBuffer}
+import scala.collection.mutable.{ListBuffer, Buffer, ArrayBuffer}
 import scala.reflect.ClassManifest
 import au.ken.treeview.event._
 import scala.swing._
@@ -220,7 +220,7 @@ object Tree extends TreeRenderers with TreeEditors {
   implicit def treePathToPath[A](tp: TreePath): Path[A] = if (tp == null) null else (tp.getPath map (_.asInstanceOf[A])).toList
   
 
-  private[treeview] trait ScalaTreeNode[A] extends MutableTreeNode {
+  private[treeview] sealed trait SwingTreeNode[A] extends MutableTreeNode {
     def childNodes: Seq[LazyNode[A]]
     
     def getChildAt(childIndex: Int): TreeNode = childNodes(childIndex)
@@ -239,8 +239,8 @@ object Tree extends TreeRenderers with TreeEditors {
     }
   }
   
-  private class RootNode[A](roots: Seq[A], children: A => Seq[A]) extends ScalaTreeNode[A] {
-    lazy val childNodes = for (r <- roots) yield new LazyNode[A](this, r, children)
+  private class RootNode[A](roots: Seq[A], children: A => Seq[A]) extends SwingTreeNode[A] {
+    lazy val childNodes = for (r <- roots.toList) yield new LazyNode[A](this, r, children)
     def getParent(): TreeNode = null
     private def notSupported = error("Not supported")
     def insert(child: MutableTreeNode, index: Int) = notSupported
@@ -252,14 +252,26 @@ object Tree extends TreeRenderers with TreeEditors {
     override def toString() = "root"
   }
   
-  private[treeview] class LazyNode[A](var parent: MutableTreeNode, var userObject: A, children: A => Seq[A]) extends ScalaTreeNode[A] {
-     lazy val childNodes: ListBuffer[LazyNode[A]] = 
-        new ListBuffer ++= children(userObject).map(n => new LazyNode(this, n, children))
+  private[treeview] class LazyNode[A](var parent: MutableTreeNode, var userObject: A, children: A => Seq[A]) extends SwingTreeNode[A] {
+     var childNodes: Seq[LazyNode[A]] = 
+        Seq().view ++ children(userObject).view.map(n => new LazyNode(this, n, children))
 
     def getParent(): TreeNode = parent
-    def insert(child: MutableTreeNode, index: Int) {childNodes.insert(index, child.asInstanceOf[LazyNode[A]])}
-    def remove(index: Int) {childNodes remove index}
-    def remove(node: MutableTreeNode) {childNodes -= node.asInstanceOf[LazyNode[A]]}
+    def insert(child: MutableTreeNode, index: Int) {
+      //childNodes.insert(index, child.asInstanceOf[LazyNode[A]])}
+      val (before, after) = childNodes splitAt index
+      childNodes = (before :+ child.asInstanceOf[LazyNode[A]]) ++ after
+    }
+    def remove(index: Int) {
+      //childNodes remove index
+      val (before, after) = childNodes splitAt index
+      childNodes = before ++ after.tail
+    }
+    def remove(node: MutableTreeNode) {
+      //childNodes -= node.asInstanceOf[LazyNode[A]]
+      val (before, after) = childNodes splitAt childNodes.indexOf(node)
+      childNodes = before ++ after.tail
+    }
     def removeFromParent() {parent remove this}
     def setParent(newParent: MutableTreeNode) {parent = newParent.asInstanceOf[LazyNode[A]]}
     def setUserObject(obj: AnyRef) {userObject = obj.asInstanceOf[A]}
@@ -276,29 +288,34 @@ object Tree extends TreeRenderers with TreeEditors {
    */
   case class TreeData[A](roots: Seq[A], children: A => Seq[A]) extends Iterable[A] {
     self =>
-    lazy val peer: TreeModel = new DefaultTreeModel(new RootNode(roots, children))
     
-    override def iterator: Iterator[A] = Iterator.empty
+    private lazy val rootNode = new RootNode(roots, children)
+    lazy val peer: TreeModel = new DefaultTreeModel(rootNode)
+    
+    override def iterator: Iterator[A] = breadthFirstIterator
 
     private trait TreeIterator extends Iterator[A] {
-      protected var openList: Iterator[A] = roots.iterator
-      def pushChildren(item: A): Unit
-      def hasNext = openList.nonEmpty
-      def next() = {
-        if (openList.hasNext) {
-          val item = openList.next
-          pushChildren(item); item
-        }
-        else error("No more items")
+      protected var openNodes: Iterator[LazyNode[A]] = rootNode.childNodes.iterator
+
+      def pushChildren(item: LazyNode[A]): Unit
+      def hasNext = openNodes.nonEmpty
+      def next() = if (openNodes.hasNext) {
+        val item = openNodes.next
+        pushChildren(item)
+        item.userObject
       }
+      else error("No more items")
     }
     
     def breadthFirstIterator: Iterator[A] = new TreeIterator {
-      def pushChildren(item: A) {openList ++= children(item).iterator}
+      override def pushChildren(item: LazyNode[A]) {openNodes ++= item.childNodes.iterator}
     }
     
     def depthFirstIterator: Iterator[A] = new TreeIterator {
-      def pushChildren(item: A) {openList = children(item).iterator ++ openList}
+      override def pushChildren(item: LazyNode[A]) {
+        val open = openNodes
+        openNodes = item.childNodes.iterator ++ open // ++ is by-name, and should not directly pass in a val
+      }
     }
     
   }
@@ -467,6 +484,8 @@ class Tree[A] extends {private var treeDataModel = Tree.TreeData.empty[A]} with 
   def renderer_=(r: Tree.Renderer[A]) { peer.setCellRenderer(r.peer) }
   
   def showsRootHandles = peer.getShowsRootHandles
+  def showsRootHandles(b:Boolean) {peer.setShowsRootHandles(b)}
+  
   //def rootVisible = peer.isRootVisible
   def rowCount = peer.getRowCount
   def rowHeight = peer.getRowHeight
