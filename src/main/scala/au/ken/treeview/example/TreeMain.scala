@@ -7,31 +7,42 @@ import Swing._
 import javax.swing.Icon
 import au.ken.treeview._
 import au.ken.treeview.event._
-import javax.swing.tree._
-import javax.swing._
+
 
 object TreeMain extends SimpleSwingApplication {
   import Tree._
   import java.io._
   import java.awt.Color
 
-  case class Person(name: String, subordinates: List[Person]) {
+  case class Person(var name: String, subordinates: List[Person]) {
     override def toString() = name + (if (subordinates.nonEmpty) "(" + subordinates.mkString(", ") + ")" else "")
   }
   val persons = Person("Bob", Nil) :: Person("John", List(Person("Jack", Nil), Person("Jill", List(Person("Betty", Nil))))) :: Nil
   
   lazy val tree = new Tree[Person] { 
     
-    treeData = TreeData[Person](persons, _.subordinates)
+    treeData = new TreeModel[Person](persons, _.subordinates) updatableWith ((path, newValue) => path.last.name = newValue.name)
     val td: List[Person] = treeData.iterator.toList
 
-    
     renderer = Renderer(_.name)
     
-    editable = true
-    
+
     //editor = Editor.wrap(new DefaultCellEditor(new JTextField))
-    editor = Editor[Person, String](_.name, s => Person(s, Nil))
+    editor = Editor[Person, String](_.name, new Person(_, Nil))
+    
+    listenTo(editor, selection, mouse.clicks)
+    
+    reactions += {
+      case TreePathSelected(_, _, _, newSelection, _) => 
+          val last = for (p <- newSelection; last <- p.lastOption) yield last
+          println(last getOrElse "None found")
+          println("All: " + persons)
+          
+      case MouseClicked(tree, _, _, 2, _) => println("click!")
+      
+      case CellEditingStopped(_) => println("Stopped: " + persons)
+      case CellEditingCancelled(_) => println("Cancelled: " + persons)
+    }
   }
 
   tree.expandAll
@@ -61,9 +72,9 @@ object TreeMain extends SimpleSwingApplication {
   }
   
   def top = new MainFrame {
-    contents = tree //Component.wrap(javaTree)
+    contents = tree
     
-    /*listenTo(tree.editor, tree.selection, tree.mouse.clicks)
+    /* listenTo(tree.editor, tree.selection, tree.mouse.clicks)
       
     reactions += {
       case TreePathSelected(_, _, _, newSelection, _) => 
@@ -112,14 +123,27 @@ object TreeMain extends SimpleSwingApplication {
     case class Minus(a: Expr, b: Expr) extends Expr {override def toString() = a + " - " + b}
     case class Const(value: Int) extends Expr {override def toString() = value.toString}
     
-    new Tree(Plus(Const(5), Minus(Const(2), Const(1))), products)
+    new Tree(Seq(Plus(Const(5), Minus(Const(2), Const(1)))), products)
   }
 
   //def nestedTupleTree = new Tree(Titled("Foods", (Titled("Legumes", ("Lentils", "Chick peas")), "Fruit", "Chips")), products)
   //def nestedListTree = new Tree(Titled("Numbers", 1 :: 2 :: 3 :: Titled("Them", (4 :: 5 :: 6 :: Nil)) :: Nil), products)
   
   //def nestedSeqTree = new Tree(Titled("Numbers", Seq(1, 2, 3, Titled("Them", Seq(4, 5, 6)))), seqs)
-  def infiniteFactorTree = Tree(10000) {n => 1 to n filter (n % _ == 0)}
-  def fileTree = new Tree(new File("."), files)
-  def filteredFileTree = new Tree(new File("."), filteredFiles(f => f.isDirectory || f.getName.endsWith(".scala")))
+  def infiniteFactorTree = new Tree[Int](Seq(10000), n => 1 to n filter (n % _ == 0))
+  
+  def fileTree = new Tree[File] {
+    treeData = TreeModel(new File(".")) {f => 
+      if (f.isDirectory) f.listFiles.toSeq else Seq()
+    }
+    expandAll()
+    renderer = Renderer(_.getName)
+  }
+  
+  
+  def filteredFileTree = new Tree[File] {
+    treeData = TreeModel(new File(".")) {
+      filteredFiles(f => f.isDirectory || f.getName.endsWith(".scala"))
+    }
+  }
 }

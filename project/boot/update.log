@@ -37,7 +37,7 @@ setting 'java.vm.specification.vendor' to 'Sun Microsystems Inc.'
 setting 'user.variant' to ''
 setting 'os.name' to 'Windows 7'
 setting 'sun.jnu.encoding' to 'Cp1252'
-setting 'java.library.path' to 'C:\Ken\Java\jdk1.6.0_17\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\CollabNet\Subversion Server;C:\Ken\Java\jdk1.6.0_17\bin;C:\Program Files (x86)\JavaFX\javafx-sdk1.2\bin;C:\Program Files (x86)\JavaFX\javafx-sdk1.2\emulator\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Ken\Java\scala-2.8.0.Beta1-prerelease\bin;C:\Program Files (x86)\Haskell Platform\2009.2.0.2\extralibs\bin;C:\Program Files (x86)\Haskell Platform\2009.2.0.2\bin;C:\Ken\Java\apache-ant-1.8.0RC1\bin;c:\ken\java\sbt;C:\ken\java\apache-maven-2.2.1\bin;C:\Program Files (x86)\Objective Caml\bin;C:\Program Files (x86)\Git\cmd'
+setting 'java.library.path' to 'C:\Ken\Java\jdk1.6.0_17\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\CollabNet\Subversion Server;C:\Ken\Java\jdk1.6.0_17\bin;C:\Program Files (x86)\JavaFX\javafx-sdk1.2\bin;C:\Program Files (x86)\JavaFX\javafx-sdk1.2\emulator\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Ken\Java\scala-2.8.0.final\bin;C:\Program Files (x86)\Haskell Platform\2009.2.0.2\extralibs\bin;C:\Program Files (x86)\Haskell Platform\2009.2.0.2\bin;C:\Ken\Java\apache-ant-1.8.0RC1\bin;c:\ken\java\sbt;C:\ken\java\apache-maven-2.2.1\bin;C:\Program Files (x86)\Objective Caml\bin;C:\Program Files (x86)\Git\cmd;C:\Program Files (x86)\QuickTime\QTSystem\'
 setting 'java.specification.name' to 'Java Platform API Specification'
 setting 'java.class.version' to '50.0'
 setting 'sun.management.compiler' to 'HotSpot Client Compiler'
@@ -73,375 +73,279 @@ setting 'ivy.cache.dir' to 'C:\Users\Ken\.ivy2\cache'
 no default cache defined: set to C:\Users\Ken\.ivy2\cache
 setting 'ivy.basedir' to 'C:\Ken\Projects\ScalaSwingTreeWrapper\project\boot'
 setting 'basedir' to 'C:\Ken\Projects\ScalaSwingTreeWrapper\project\boot'
-setting 'scala' to '2.7.7'
-:: resolving dependencies :: org.scala-tools.sbt#boot-app;1.0
+setting 'scala' to '2.8.1.RC1'
+:: resolving dependencies :: org.scala-tools.sbt#boot-scala;1.0
 	confs: [default]
 	validate = true
 	refresh = false
 resolving dependencies for configuration 'default'
-== resolving dependencies for org.scala-tools.sbt#boot-app;1.0 [default]
-loadData of org.scala-tools.sbt#boot-app;1.0 of rootConf=default
-== resolving dependencies org.scala-tools.sbt#boot-app;1.0->org.scala-tools.sbt#sbt_2.7.7;0.7.4 [default->default(compile)]
-loadData of org.scala-tools.sbt#sbt_2.7.7;0.7.4 of rootConf=default
-	using redefined-public to resolve org.scala-tools.sbt#sbt_2.7.7;0.7.4
-redefined-public: Checking cache for: dependency: org.scala-tools.sbt#sbt_2.7.7;0.7.4 {default=[default(compile)]}
+== resolving dependencies for org.scala-tools.sbt#boot-scala;1.0 [default]
+loadData of org.scala-tools.sbt#boot-scala;1.0 of rootConf=default
+== resolving dependencies org.scala-tools.sbt#boot-scala;1.0->org.scala-lang#scala-compiler;2.8.1.RC1 [default->default]
+loadData of org.scala-lang#scala-compiler;2.8.1.RC1 of rootConf=default
+	using redefined-public to resolve org.scala-lang#scala-compiler;2.8.1.RC1
+redefined-public: Checking cache for: dependency: org.scala-lang#scala-compiler;2.8.1.RC1 {default=[default]}
 redefined-public: no namespace defined: using system
-No entry is found in the ModuleDescriptorCache : C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\sbt_2.7.7\ivy-0.7.4.xml
-installing class org.apache.ivy.util.url.IvyAuthenticator
-pre 1.3 ivy file: using exactOrRegexp as default matcher
-	found ivy file in cache for org.scala-tools.sbt#sbt_2.7.7;0.7.4 (resolved by sbt-db): C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\sbt_2.7.7\ivy-0.7.4.xml
-redefined-public: module revision found in cache: org.scala-tools.sbt#sbt_2.7.7;0.7.4
+	no ivy file in cache for org.scala-lang#scala-compiler;2.8.1.RC1: tried C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-compiler\ivy-2.8.1.RC1.xml
 redefined-public: no latest strategy defined: using default
-	found org.scala-tools.sbt#sbt_2.7.7;0.7.4 in sbt-db
-excluding dependency: org.scala-lang#scala-library;2.7.7 {default=[default(compile)]} in default
-excluding dependency: org.scala-lang#scala-compiler;2.7.7 {default=[default(compile)]} in default
-== resolving dependencies org.scala-tools.sbt#sbt_2.7.7;0.7.4->com.jcraft#jsch;0.1.31 [default->default(compile)]
-excluding dependency: org.scala-lang#scala-library;2.7.7 {default=[default(compile)]} in default
-excluding dependency: org.scala-lang#scala-compiler;2.7.7 {default=[default(compile)]} in default
-loadData of com.jcraft#jsch;0.1.31 of rootConf=default
-	using redefined-public to resolve com.jcraft#jsch;0.1.31
-redefined-public: Checking cache for: dependency: com.jcraft#jsch;0.1.31 {default=[default(compile)]}
-No entry is found in the ModuleDescriptorCache : C:\Users\Ken\.ivy2\cache\com.jcraft\jsch\ivy-0.1.31.xml
-pre 1.3 ivy file: using exactOrRegexp as default matcher
-	found ivy file in cache for com.jcraft#jsch;0.1.31 (resolved by Maven Central): C:\Users\Ken\.ivy2\cache\com.jcraft\jsch\ivy-0.1.31.xml
-redefined-public: module revision found in cache: com.jcraft#jsch;0.1.31
-	found com.jcraft#jsch;0.1.31 in Maven Central
-== resolving dependencies org.scala-tools.sbt#sbt_2.7.7;0.7.4->com.jcraft#jsch;0.1.31 [default->runtime]
-loadData of com.jcraft#jsch;0.1.31 of rootConf=default
-== resolving dependencies org.scala-tools.sbt#sbt_2.7.7;0.7.4->com.jcraft#jsch;0.1.31 [default->compile]
-loadData of com.jcraft#jsch;0.1.31 of rootConf=default
-== resolving dependencies org.scala-tools.sbt#sbt_2.7.7;0.7.4->com.jcraft#jsch;0.1.31 [default->master]
-loadData of com.jcraft#jsch;0.1.31 of rootConf=default
-== resolving dependencies org.scala-tools.sbt#sbt_2.7.7;0.7.4->org.scala-tools.testing#test-interface;0.5 [default->default(compile)]
-excluding dependency: org.scala-lang#scala-library;2.7.7 {default=[default(compile)]} in default
-excluding dependency: org.scala-lang#scala-compiler;2.7.7 {default=[default(compile)]} in default
-loadData of org.scala-tools.testing#test-interface;0.5 of rootConf=default
-	using redefined-public to resolve org.scala-tools.testing#test-interface;0.5
-redefined-public: Checking cache for: dependency: org.scala-tools.testing#test-interface;0.5 {default=[default(compile)]}
-No entry is found in the ModuleDescriptorCache : C:\Users\Ken\.ivy2\cache\org.scala-tools.testing\test-interface\ivy-0.5.xml
-pre 1.3 ivy file: using exactOrRegexp as default matcher
-	found ivy file in cache for org.scala-tools.testing#test-interface;0.5 (resolved by Maven Central): C:\Users\Ken\.ivy2\cache\org.scala-tools.testing\test-interface\ivy-0.5.xml
-redefined-public: module revision found in cache: org.scala-tools.testing#test-interface;0.5
-	found org.scala-tools.testing#test-interface;0.5 in Maven Central
-== resolving dependencies org.scala-tools.sbt#sbt_2.7.7;0.7.4->org.scala-tools.testing#test-interface;0.5 [default->runtime]
-loadData of org.scala-tools.testing#test-interface;0.5 of rootConf=default
-== resolving dependencies org.scala-tools.sbt#sbt_2.7.7;0.7.4->org.scala-tools.testing#test-interface;0.5 [default->compile]
-loadData of org.scala-tools.testing#test-interface;0.5 of rootConf=default
-== resolving dependencies org.scala-tools.sbt#sbt_2.7.7;0.7.4->org.scala-tools.testing#test-interface;0.5 [default->master]
-loadData of org.scala-tools.testing#test-interface;0.5 of rootConf=default
-== resolving dependencies org.scala-tools.sbt#sbt_2.7.7;0.7.4->org.apache.ivy#ivy;2.1.0 [default->default(compile)]
-excluding dependency: org.scala-lang#scala-library;2.7.7 {default=[default(compile)]} in default
-excluding dependency: org.scala-lang#scala-compiler;2.7.7 {default=[default(compile)]} in default
-loadData of org.apache.ivy#ivy;2.1.0 of rootConf=default
-	using redefined-public to resolve org.apache.ivy#ivy;2.1.0
-redefined-public: Checking cache for: dependency: org.apache.ivy#ivy;2.1.0 {default=[default(compile)]}
-No entry is found in the ModuleDescriptorCache : C:\Users\Ken\.ivy2\cache\org.apache.ivy\ivy\ivy-2.1.0.xml
-pre 1.3 ivy file: using exactOrRegexp as default matcher
-	found ivy file in cache for org.apache.ivy#ivy;2.1.0 (resolved by Maven Central): C:\Users\Ken\.ivy2\cache\org.apache.ivy\ivy\ivy-2.1.0.xml
-redefined-public: module revision found in cache: org.apache.ivy#ivy;2.1.0
-	found org.apache.ivy#ivy;2.1.0 in Maven Central
-== resolving dependencies org.scala-tools.sbt#sbt_2.7.7;0.7.4->org.apache.ivy#ivy;2.1.0 [default->runtime]
-loadData of org.apache.ivy#ivy;2.1.0 of rootConf=default
-== resolving dependencies org.scala-tools.sbt#sbt_2.7.7;0.7.4->org.apache.ivy#ivy;2.1.0 [default->compile]
-loadData of org.apache.ivy#ivy;2.1.0 of rootConf=default
-== resolving dependencies org.scala-tools.sbt#sbt_2.7.7;0.7.4->org.apache.ivy#ivy;2.1.0 [default->master]
-loadData of org.apache.ivy#ivy;2.1.0 of rootConf=default
-== resolving dependencies org.scala-tools.sbt#sbt_2.7.7;0.7.4->org.scala-tools.sbt#compile_2.7.7;0.7.4 [default->default(compile)]
-excluding dependency: org.scala-lang#scala-library;2.7.7 {default=[default(compile)]} in default
-excluding dependency: org.scala-lang#scala-compiler;2.7.7 {default=[default(compile)]} in default
-loadData of org.scala-tools.sbt#compile_2.7.7;0.7.4 of rootConf=default
-	using redefined-public to resolve org.scala-tools.sbt#compile_2.7.7;0.7.4
-redefined-public: Checking cache for: dependency: org.scala-tools.sbt#compile_2.7.7;0.7.4 {default=[default(compile)]}
-No entry is found in the ModuleDescriptorCache : C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\compile_2.7.7\ivy-0.7.4.xml
-pre 1.3 ivy file: using exactOrRegexp as default matcher
-	found ivy file in cache for org.scala-tools.sbt#compile_2.7.7;0.7.4 (resolved by sbt-db): C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\compile_2.7.7\ivy-0.7.4.xml
-redefined-public: module revision found in cache: org.scala-tools.sbt#compile_2.7.7;0.7.4
-	found org.scala-tools.sbt#compile_2.7.7;0.7.4 in sbt-db
-== resolving dependencies org.scala-tools.sbt#compile_2.7.7;0.7.4->org.scala-tools.sbt#launcher-interface;0.7.4 [default->default(compile)]
-excluding dependency: org.scala-lang#scala-library;2.7.7 {default=[default(compile)]} in default
-excluding dependency: org.scala-lang#scala-compiler;2.7.7 {default=[default(compile)]} in default
-loadData of org.scala-tools.sbt#launcher-interface;0.7.4 of rootConf=default
-	using redefined-public to resolve org.scala-tools.sbt#launcher-interface;0.7.4
-redefined-public: Checking cache for: dependency: org.scala-tools.sbt#launcher-interface;0.7.4 {default=[default(compile)]}
-No entry is found in the ModuleDescriptorCache : C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\launcher-interface\ivy-0.7.4.xml
-pre 1.3 ivy file: using exactOrRegexp as default matcher
-	found ivy file in cache for org.scala-tools.sbt#launcher-interface;0.7.4 (resolved by sbt-db): C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\launcher-interface\ivy-0.7.4.xml
-redefined-public: module revision found in cache: org.scala-tools.sbt#launcher-interface;0.7.4
-	found org.scala-tools.sbt#launcher-interface;0.7.4 in sbt-db
-== resolving dependencies org.scala-tools.sbt#compile_2.7.7;0.7.4->org.scala-tools.sbt#interface;0.7.4 [default->default(compile)]
-excluding dependency: org.scala-lang#scala-library;2.7.7 {default=[default(compile)]} in default
-excluding dependency: org.scala-lang#scala-compiler;2.7.7 {default=[default(compile)]} in default
-loadData of org.scala-tools.sbt#interface;0.7.4 of rootConf=default
-	using redefined-public to resolve org.scala-tools.sbt#interface;0.7.4
-redefined-public: Checking cache for: dependency: org.scala-tools.sbt#interface;0.7.4 {default=[default(compile)]}
-No entry is found in the ModuleDescriptorCache : C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\interface\ivy-0.7.4.xml
-pre 1.3 ivy file: using exactOrRegexp as default matcher
-	found ivy file in cache for org.scala-tools.sbt#interface;0.7.4 (resolved by sbt-db): C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\interface\ivy-0.7.4.xml
-redefined-public: module revision found in cache: org.scala-tools.sbt#interface;0.7.4
-	found org.scala-tools.sbt#interface;0.7.4 in sbt-db
-== resolving dependencies org.scala-tools.sbt#compile_2.7.7;0.7.4->org.scala-tools.sbt#ivy_2.7.7;0.7.4 [default->default(compile)]
-excluding dependency: org.scala-lang#scala-library;2.7.7 {default=[default(compile)]} in default
-excluding dependency: org.scala-lang#scala-compiler;2.7.7 {default=[default(compile)]} in default
-loadData of org.scala-tools.sbt#ivy_2.7.7;0.7.4 of rootConf=default
-	using redefined-public to resolve org.scala-tools.sbt#ivy_2.7.7;0.7.4
-redefined-public: Checking cache for: dependency: org.scala-tools.sbt#ivy_2.7.7;0.7.4 {default=[default(compile)]}
-No entry is found in the ModuleDescriptorCache : C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\ivy_2.7.7\ivy-0.7.4.xml
-pre 1.3 ivy file: using exactOrRegexp as default matcher
-	found ivy file in cache for org.scala-tools.sbt#ivy_2.7.7;0.7.4 (resolved by sbt-db): C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\ivy_2.7.7\ivy-0.7.4.xml
-redefined-public: module revision found in cache: org.scala-tools.sbt#ivy_2.7.7;0.7.4
-	found org.scala-tools.sbt#ivy_2.7.7;0.7.4 in sbt-db
-== resolving dependencies org.scala-tools.sbt#ivy_2.7.7;0.7.4->org.apache.ivy#ivy;2.1.0 [default->default(compile)]
-loadData of org.apache.ivy#ivy;2.1.0 of rootConf=default
+local: no namespace defined: using system
+	no ivy file in cache for org.scala-lang#scala-compiler;2.8.1.RC1: tried C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-compiler\ivy-2.8.1.RC1.xml
+	 trying C:\Users\Ken\.ivy2/local/org.scala-lang/scala-compiler/2.8.1.RC1/ivys/ivy.xml
+		tried C:\Users\Ken\.ivy2/local/org.scala-lang/scala-compiler/2.8.1.RC1/ivys/ivy.xml
+	local: resource not reachable for org.scala-lang#scala-compiler;2.8.1.RC1: res=C:\Users\Ken\.ivy2\local\org.scala-lang\scala-compiler\2.8.1.RC1\ivys\ivy.xml
+	 trying C:\Users\Ken\.ivy2/local/org.scala-lang/scala-compiler/2.8.1.RC1/jars/scala-compiler.jar
+		tried C:\Users\Ken\.ivy2/local/org.scala-lang/scala-compiler/2.8.1.RC1/jars/scala-compiler.jar
+	local: resource not reachable for org.scala-lang#scala-compiler;2.8.1.RC1: res=C:\Users\Ken\.ivy2\local\org.scala-lang\scala-compiler\2.8.1.RC1\jars\scala-compiler.jar
+	local: no ivy file nor artifact found for org.scala-lang#scala-compiler;2.8.1.RC1
+Maven2 Local: no namespace defined: using system
+	no ivy file in cache for org.scala-lang#scala-compiler;2.8.1.RC1: tried C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-compiler\ivy-2.8.1.RC1.xml
+	 trying file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1.pom
+		tried file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1.pom
+installing class org.apache.ivy.util.url.IvyAuthenticator
+	Maven2 Local: resource not reachable for org/scala-lang#scala-compiler;2.8.1.RC1: res=file://C:/Users/Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1.pom
+	 trying file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1.jar
+		tried file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1.jar
+	Maven2 Local: resource not reachable for org/scala-lang#scala-compiler;2.8.1.RC1: res=file://C:/Users/Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1.jar
+	Maven2 Local: no ivy file nor artifact found for org.scala-lang#scala-compiler;2.8.1.RC1
+sbt-db: no namespace defined: using system
+	no ivy file in cache for org.scala-lang#scala-compiler;2.8.1.RC1: tried C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-compiler\ivy-2.8.1.RC1.xml
+	 trying http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.1.RC1/ivys/ivy.xml
+		tried http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.1.RC1/ivys/ivy.xml
+HTTP response status: 404 url=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.1.RC1/ivys/ivy.xml
+CLIENT ERROR: Not Found url=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.1.RC1/ivys/ivy.xml
+	sbt-db: resource not reachable for org.scala-lang#scala-compiler;2.8.1.RC1: res=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.1.RC1/ivys/ivy.xml
+	 trying http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.1.RC1/jars/scala-compiler.jar
+		tried http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.1.RC1/jars/scala-compiler.jar
+HTTP response status: 404 url=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.1.RC1/jars/scala-compiler.jar
+CLIENT ERROR: Not Found url=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.1.RC1/jars/scala-compiler.jar
+	sbt-db: resource not reachable for org.scala-lang#scala-compiler;2.8.1.RC1: res=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.1.RC1/jars/scala-compiler.jar
+	sbt-db: no ivy file nor artifact found for org.scala-lang#scala-compiler;2.8.1.RC1
+Maven Central: no namespace defined: using system
+	no ivy file in cache for org.scala-lang#scala-compiler;2.8.1.RC1: tried C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-compiler\ivy-2.8.1.RC1.xml
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1.pom
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1.pom
+	Maven Central: found md file for org.scala-lang#scala-compiler;2.8.1.RC1
+		=> http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1.pom (2.8.1.RC1)
+	parser = pom parser
+	no ivy file in cache for org.scala-lang#scala-compiler;2.8.1.RC1: tried C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-compiler\ivy-2.8.1.RC1.xml
+downloading http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1.pom ...
+	Maven Central: downloading http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1.pom
+		to C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-compiler\ivy-2.8.1.RC1.xml.original.part
+	[SUCCESSFUL ] org.scala-lang#scala-compiler;2.8.1.RC1!scala-compiler.pom(pom.original) (468ms)
+	 trying C:\Users\Ken\.ivy2/local/org.scala-lang/scala-compiler/2.8.1.RC1/jars/scala-compiler.jar
+		tried C:\Users\Ken\.ivy2/local/org.scala-lang/scala-compiler/2.8.1.RC1/jars/scala-compiler.jar
+	local: resource not reachable for org.scala-lang#scala-compiler;2.8.1.RC1: res=C:\Users\Ken\.ivy2\local\org.scala-lang\scala-compiler\2.8.1.RC1\jars\scala-compiler.jar
+	 trying file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1.jar
+		tried file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1.jar
+	Maven2 Local: resource not reachable for org/scala-lang#scala-compiler;2.8.1.RC1: res=file://C:/Users/Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1.jar
+	 trying http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.1.RC1/jars/scala-compiler.jar
+		tried http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.1.RC1/jars/scala-compiler.jar
+	sbt-db: resource not reachable for org.scala-lang#scala-compiler;2.8.1.RC1: res=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.1.RC1/jars/scala-compiler.jar
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1.jar
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1.jar
+	 trying C:\Users\Ken\.ivy2/local/org.scala-lang/scala-compiler/2.8.1.RC1/sources/scala-compiler-sources.jar
+		tried C:\Users\Ken\.ivy2/local/org.scala-lang/scala-compiler/2.8.1.RC1/sources/scala-compiler-sources.jar
+	local: resource not reachable for org.scala-lang#scala-compiler;2.8.1.RC1: res=C:\Users\Ken\.ivy2\local\org.scala-lang\scala-compiler\2.8.1.RC1\sources\scala-compiler-sources.jar
+	 trying file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1-sources.jar
+		tried file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1-sources.jar
+	Maven2 Local: resource not reachable for org/scala-lang#scala-compiler;2.8.1.RC1: res=file://C:/Users/Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1-sources.jar
+	 trying http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.1.RC1/sources/scala-compiler-sources.jar
+		tried http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.1.RC1/sources/scala-compiler-sources.jar
+HTTP response status: 404 url=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.1.RC1/sources/scala-compiler-sources.jar
+CLIENT ERROR: Not Found url=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.1.RC1/sources/scala-compiler-sources.jar
+	sbt-db: resource not reachable for org.scala-lang#scala-compiler;2.8.1.RC1: res=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.1.RC1/sources/scala-compiler-sources.jar
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1-sources.jar
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1-sources.jar
+source artifact found for org.scala-lang#scala-compiler;2.8.1.RC1
+	 trying C:\Users\Ken\.ivy2/local/org.scala-lang/scala-compiler/2.8.1.RC1/javadocs/scala-compiler-javadoc.jar
+		tried C:\Users\Ken\.ivy2/local/org.scala-lang/scala-compiler/2.8.1.RC1/javadocs/scala-compiler-javadoc.jar
+	local: resource not reachable for org.scala-lang#scala-compiler;2.8.1.RC1: res=C:\Users\Ken\.ivy2\local\org.scala-lang\scala-compiler\2.8.1.RC1\javadocs\scala-compiler-javadoc.jar
+	 trying file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1-javadoc.jar
+		tried file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1-javadoc.jar
+	Maven2 Local: resource not reachable for org/scala-lang#scala-compiler;2.8.1.RC1: res=file://C:/Users/Ken/.m2/repository/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1-javadoc.jar
+	 trying http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.1.RC1/javadocs/scala-compiler-javadoc.jar
+		tried http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.1.RC1/javadocs/scala-compiler-javadoc.jar
+HTTP response status: 404 url=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.1.RC1/javadocs/scala-compiler-javadoc.jar
+CLIENT ERROR: Not Found url=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.1.RC1/javadocs/scala-compiler-javadoc.jar
+	sbt-db: resource not reachable for org.scala-lang#scala-compiler;2.8.1.RC1: res=http://databinder.net/repo/org.scala-lang/scala-compiler/2.8.1.RC1/javadocs/scala-compiler-javadoc.jar
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1-javadoc.jar
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1-javadoc.jar
+HTTP response status: 404 url=http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1-javadoc.jar
+CLIENT ERROR: Not Found url=http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1-javadoc.jar
+	Maven Central: resource not reachable for org/scala-lang#scala-compiler;2.8.1.RC1: res=http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1-javadoc.jar
+	 trying http://scala-tools.org/repo-releases/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1-javadoc.jar
+		tried http://scala-tools.org/repo-releases/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1-javadoc.jar
+HTTP response status: 404 url=http://scala-tools.org/repo-releases/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1-javadoc.jar
+CLIENT ERROR: Not Found url=http://scala-tools.org/repo-releases/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1-javadoc.jar
+	Scala-Tools Maven2 Repository: resource not reachable for org/scala-lang#scala-compiler;2.8.1.RC1: res=http://scala-tools.org/repo-releases/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1-javadoc.jar
+	 trying http://scala-tools.org/repo-snapshots/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1-javadoc.jar
+		tried http://scala-tools.org/repo-snapshots/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1-javadoc.jar
+HTTP response status: 404 url=http://scala-tools.org/repo-snapshots/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1-javadoc.jar
+CLIENT ERROR: Not Found url=http://scala-tools.org/repo-snapshots/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1-javadoc.jar
+	Scala-Tools Maven2 Snapshots Repository: resource not reachable for org/scala-lang#scala-compiler;2.8.1.RC1: res=http://scala-tools.org/repo-snapshots/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1-javadoc.jar
+no javadoc artifact found for org.scala-lang#scala-compiler;2.8.1.RC1
+	default-cache: parsed downloaded md file for org.scala-lang#scala-compiler;2.8.1.RC1; parsed=org.scala-lang#scala-compiler;2.8.1.RC1
+	checking org.scala-lang#scala-compiler;2.8.1.RC1 from Maven Central against [none]
+	module revision kept as first found: org.scala-lang#scala-compiler;2.8.1.RC1 from Maven Central
+	found org.scala-lang#scala-compiler;2.8.1.RC1 in Maven Central
+== resolving dependencies org.scala-tools.sbt#boot-scala;1.0->org.scala-lang#scala-compiler;2.8.1.RC1 [default->runtime]
+loadData of org.scala-lang#scala-compiler;2.8.1.RC1 of rootConf=default
+== resolving dependencies org.scala-tools.sbt#boot-scala;1.0->org.scala-lang#scala-compiler;2.8.1.RC1 [default->compile]
+loadData of org.scala-lang#scala-compiler;2.8.1.RC1 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.8.1.RC1->org.scala-lang#scala-library;2.8.1.RC1 [compile->master(*)]
+loadData of org.scala-lang#scala-library;2.8.1.RC1 of rootConf=default
+	using redefined-public to resolve org.scala-lang#scala-library;2.8.1.RC1
+redefined-public: Checking cache for: dependency: org.scala-lang#scala-library;2.8.1.RC1 {compile=[compile(*), master(*)], runtime=[runtime(*)]}
+	no ivy file in cache for org.scala-lang#scala-library;2.8.1.RC1: tried C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-library\ivy-2.8.1.RC1.xml
+	no ivy file in cache for org.scala-lang#scala-library;2.8.1.RC1: tried C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-library\ivy-2.8.1.RC1.xml
+	 trying C:\Users\Ken\.ivy2/local/org.scala-lang/scala-library/2.8.1.RC1/ivys/ivy.xml
+		tried C:\Users\Ken\.ivy2/local/org.scala-lang/scala-library/2.8.1.RC1/ivys/ivy.xml
+	local: resource not reachable for org.scala-lang#scala-library;2.8.1.RC1: res=C:\Users\Ken\.ivy2\local\org.scala-lang\scala-library\2.8.1.RC1\ivys\ivy.xml
+	 trying C:\Users\Ken\.ivy2/local/org.scala-lang/scala-library/2.8.1.RC1/jars/scala-library.jar
+		tried C:\Users\Ken\.ivy2/local/org.scala-lang/scala-library/2.8.1.RC1/jars/scala-library.jar
+	local: resource not reachable for org.scala-lang#scala-library;2.8.1.RC1: res=C:\Users\Ken\.ivy2\local\org.scala-lang\scala-library\2.8.1.RC1\jars\scala-library.jar
+	local: no ivy file nor artifact found for org.scala-lang#scala-library;2.8.1.RC1
+	no ivy file in cache for org.scala-lang#scala-library;2.8.1.RC1: tried C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-library\ivy-2.8.1.RC1.xml
+	 trying file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1.pom
+		tried file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1.pom
+	Maven2 Local: resource not reachable for org/scala-lang#scala-library;2.8.1.RC1: res=file://C:/Users/Ken/.m2/repository/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1.pom
+	 trying file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1.jar
+		tried file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1.jar
+	Maven2 Local: resource not reachable for org/scala-lang#scala-library;2.8.1.RC1: res=file://C:/Users/Ken/.m2/repository/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1.jar
+	Maven2 Local: no ivy file nor artifact found for org.scala-lang#scala-library;2.8.1.RC1
+	no ivy file in cache for org.scala-lang#scala-library;2.8.1.RC1: tried C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-library\ivy-2.8.1.RC1.xml
+	 trying http://databinder.net/repo/org.scala-lang/scala-library/2.8.1.RC1/ivys/ivy.xml
+		tried http://databinder.net/repo/org.scala-lang/scala-library/2.8.1.RC1/ivys/ivy.xml
+HTTP response status: 404 url=http://databinder.net/repo/org.scala-lang/scala-library/2.8.1.RC1/ivys/ivy.xml
+CLIENT ERROR: Not Found url=http://databinder.net/repo/org.scala-lang/scala-library/2.8.1.RC1/ivys/ivy.xml
+	sbt-db: resource not reachable for org.scala-lang#scala-library;2.8.1.RC1: res=http://databinder.net/repo/org.scala-lang/scala-library/2.8.1.RC1/ivys/ivy.xml
+	 trying http://databinder.net/repo/org.scala-lang/scala-library/2.8.1.RC1/jars/scala-library.jar
+		tried http://databinder.net/repo/org.scala-lang/scala-library/2.8.1.RC1/jars/scala-library.jar
+HTTP response status: 404 url=http://databinder.net/repo/org.scala-lang/scala-library/2.8.1.RC1/jars/scala-library.jar
+CLIENT ERROR: Not Found url=http://databinder.net/repo/org.scala-lang/scala-library/2.8.1.RC1/jars/scala-library.jar
+	sbt-db: resource not reachable for org.scala-lang#scala-library;2.8.1.RC1: res=http://databinder.net/repo/org.scala-lang/scala-library/2.8.1.RC1/jars/scala-library.jar
+	sbt-db: no ivy file nor artifact found for org.scala-lang#scala-library;2.8.1.RC1
+	no ivy file in cache for org.scala-lang#scala-library;2.8.1.RC1: tried C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-library\ivy-2.8.1.RC1.xml
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1.pom
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1.pom
+	Maven Central: found md file for org.scala-lang#scala-library;2.8.1.RC1
+		=> http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1.pom (2.8.1.RC1)
+	parser = pom parser
+	no ivy file in cache for org.scala-lang#scala-library;2.8.1.RC1: tried C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-library\ivy-2.8.1.RC1.xml
+downloading http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1.pom ...
+	Maven Central: downloading http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1.pom
+		to C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-library\ivy-2.8.1.RC1.xml.original.part
+	[SUCCESSFUL ] org.scala-lang#scala-library;2.8.1.RC1!scala-library.pom(pom.original) (483ms)
+	 trying C:\Users\Ken\.ivy2/local/org.scala-lang/scala-library/2.8.1.RC1/jars/scala-library.jar
+		tried C:\Users\Ken\.ivy2/local/org.scala-lang/scala-library/2.8.1.RC1/jars/scala-library.jar
+	local: resource not reachable for org.scala-lang#scala-library;2.8.1.RC1: res=C:\Users\Ken\.ivy2\local\org.scala-lang\scala-library\2.8.1.RC1\jars\scala-library.jar
+	 trying file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1.jar
+		tried file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1.jar
+	Maven2 Local: resource not reachable for org/scala-lang#scala-library;2.8.1.RC1: res=file://C:/Users/Ken/.m2/repository/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1.jar
+	 trying http://databinder.net/repo/org.scala-lang/scala-library/2.8.1.RC1/jars/scala-library.jar
+		tried http://databinder.net/repo/org.scala-lang/scala-library/2.8.1.RC1/jars/scala-library.jar
+	sbt-db: resource not reachable for org.scala-lang#scala-library;2.8.1.RC1: res=http://databinder.net/repo/org.scala-lang/scala-library/2.8.1.RC1/jars/scala-library.jar
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1.jar
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1.jar
+	 trying C:\Users\Ken\.ivy2/local/org.scala-lang/scala-library/2.8.1.RC1/sources/scala-library-sources.jar
+		tried C:\Users\Ken\.ivy2/local/org.scala-lang/scala-library/2.8.1.RC1/sources/scala-library-sources.jar
+	local: resource not reachable for org.scala-lang#scala-library;2.8.1.RC1: res=C:\Users\Ken\.ivy2\local\org.scala-lang\scala-library\2.8.1.RC1\sources\scala-library-sources.jar
+	 trying file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1-sources.jar
+		tried file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1-sources.jar
+	Maven2 Local: resource not reachable for org/scala-lang#scala-library;2.8.1.RC1: res=file://C:/Users/Ken/.m2/repository/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1-sources.jar
+	 trying http://databinder.net/repo/org.scala-lang/scala-library/2.8.1.RC1/sources/scala-library-sources.jar
+		tried http://databinder.net/repo/org.scala-lang/scala-library/2.8.1.RC1/sources/scala-library-sources.jar
+HTTP response status: 404 url=http://databinder.net/repo/org.scala-lang/scala-library/2.8.1.RC1/sources/scala-library-sources.jar
+CLIENT ERROR: Not Found url=http://databinder.net/repo/org.scala-lang/scala-library/2.8.1.RC1/sources/scala-library-sources.jar
+	sbt-db: resource not reachable for org.scala-lang#scala-library;2.8.1.RC1: res=http://databinder.net/repo/org.scala-lang/scala-library/2.8.1.RC1/sources/scala-library-sources.jar
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1-sources.jar
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1-sources.jar
+source artifact found for org.scala-lang#scala-library;2.8.1.RC1
+	 trying C:\Users\Ken\.ivy2/local/org.scala-lang/scala-library/2.8.1.RC1/javadocs/scala-library-javadoc.jar
+		tried C:\Users\Ken\.ivy2/local/org.scala-lang/scala-library/2.8.1.RC1/javadocs/scala-library-javadoc.jar
+	local: resource not reachable for org.scala-lang#scala-library;2.8.1.RC1: res=C:\Users\Ken\.ivy2\local\org.scala-lang\scala-library\2.8.1.RC1\javadocs\scala-library-javadoc.jar
+	 trying file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1-javadoc.jar
+		tried file://C:\Users\Ken/.m2/repository/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1-javadoc.jar
+	Maven2 Local: resource not reachable for org/scala-lang#scala-library;2.8.1.RC1: res=file://C:/Users/Ken/.m2/repository/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1-javadoc.jar
+	 trying http://databinder.net/repo/org.scala-lang/scala-library/2.8.1.RC1/javadocs/scala-library-javadoc.jar
+		tried http://databinder.net/repo/org.scala-lang/scala-library/2.8.1.RC1/javadocs/scala-library-javadoc.jar
+HTTP response status: 404 url=http://databinder.net/repo/org.scala-lang/scala-library/2.8.1.RC1/javadocs/scala-library-javadoc.jar
+CLIENT ERROR: Not Found url=http://databinder.net/repo/org.scala-lang/scala-library/2.8.1.RC1/javadocs/scala-library-javadoc.jar
+	sbt-db: resource not reachable for org.scala-lang#scala-library;2.8.1.RC1: res=http://databinder.net/repo/org.scala-lang/scala-library/2.8.1.RC1/javadocs/scala-library-javadoc.jar
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1-javadoc.jar
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1-javadoc.jar
+javadoc artifact found for org.scala-lang#scala-library;2.8.1.RC1
+	default-cache: parsed downloaded md file for org.scala-lang#scala-library;2.8.1.RC1; parsed=org.scala-lang#scala-library;2.8.1.RC1
+	checking org.scala-lang#scala-library;2.8.1.RC1 from Maven Central against [none]
+	module revision kept as first found: org.scala-lang#scala-library;2.8.1.RC1 from Maven Central
+	found org.scala-lang#scala-library;2.8.1.RC1 in Maven Central
+== resolving dependencies org.scala-lang#scala-compiler;2.8.1.RC1->org.scala-lang#scala-library;2.8.1.RC1 [compile->compile(*)]
+loadData of org.scala-lang#scala-library;2.8.1.RC1 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.8.1.RC1->org.scala-lang#scala-library;2.8.1.RC1 [compile->default]
+loadData of org.scala-lang#scala-library;2.8.1.RC1 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.8.1.RC1->org.scala-lang#scala-library;2.8.1.RC1 [compile->runtime]
+loadData of org.scala-lang#scala-library;2.8.1.RC1 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.8.1.RC1->org.scala-lang#scala-library;2.8.1.RC1 [compile->compile]
+loadData of org.scala-lang#scala-library;2.8.1.RC1 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.8.1.RC1->org.scala-lang#scala-library;2.8.1.RC1 [compile->master]
+loadData of org.scala-lang#scala-library;2.8.1.RC1 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.8.1.RC1->org.scala-lang#scala-library;2.8.1.RC1 [runtime->runtime(*)]
+loadData of org.scala-lang#scala-library;2.8.1.RC1 of rootConf=default
+== resolving dependencies org.scala-lang#scala-compiler;2.8.1.RC1->org.scala-lang#scala-library;2.8.1.RC1 [runtime->compile]
+loadData of org.scala-lang#scala-library;2.8.1.RC1 of rootConf=default
 default is loaded and no conf to load.  Skip loading
-== resolving dependencies org.scala-tools.sbt#ivy_2.7.7;0.7.4->org.apache.ivy#ivy;2.1.0 [default->runtime]
-loadData of org.apache.ivy#ivy;2.1.0 of rootConf=default
+== resolving dependencies org.scala-tools.sbt#boot-scala;1.0->org.scala-lang#scala-compiler;2.8.1.RC1 [default->master]
+loadData of org.scala-lang#scala-compiler;2.8.1.RC1 of rootConf=default
+== resolving dependencies org.scala-tools.sbt#boot-scala;1.0->org.scala-lang#scala-library;2.8.1.RC1 [default->default]
+loadData of org.scala-lang#scala-library;2.8.1.RC1 of rootConf=default
 default is loaded and no conf to load.  Skip loading
-== resolving dependencies org.scala-tools.sbt#ivy_2.7.7;0.7.4->org.apache.ivy#ivy;2.1.0 [default->compile]
-loadData of org.apache.ivy#ivy;2.1.0 of rootConf=default
+== resolving dependencies org.scala-tools.sbt#boot-scala;1.0->org.scala-lang#scala-library;2.8.1.RC1 [default->runtime]
+loadData of org.scala-lang#scala-library;2.8.1.RC1 of rootConf=default
 default is loaded and no conf to load.  Skip loading
-== resolving dependencies org.scala-tools.sbt#ivy_2.7.7;0.7.4->org.apache.ivy#ivy;2.1.0 [default->master]
-loadData of org.apache.ivy#ivy;2.1.0 of rootConf=default
+== resolving dependencies org.scala-tools.sbt#boot-scala;1.0->org.scala-lang#scala-library;2.8.1.RC1 [default->compile]
+loadData of org.scala-lang#scala-library;2.8.1.RC1 of rootConf=default
 default is loaded and no conf to load.  Skip loading
-== resolving dependencies org.scala-tools.sbt#ivy_2.7.7;0.7.4->org.scala-tools.sbt#interface;0.7.4 [default->default(compile)]
-loadData of org.scala-tools.sbt#interface;0.7.4 of rootConf=default
+== resolving dependencies org.scala-tools.sbt#boot-scala;1.0->org.scala-lang#scala-library;2.8.1.RC1 [default->master]
+loadData of org.scala-lang#scala-library;2.8.1.RC1 of rootConf=default
 default is loaded and no conf to load.  Skip loading
-== resolving dependencies org.scala-tools.sbt#ivy_2.7.7;0.7.4->org.scala-tools.sbt#launcher-interface;0.7.4 [default->default(compile)]
-loadData of org.scala-tools.sbt#launcher-interface;0.7.4 of rootConf=default
-default is loaded and no conf to load.  Skip loading
-== resolving dependencies org.scala-tools.sbt#compile_2.7.7;0.7.4->org.scala-tools.sbt#io_2.7.7;0.7.4 [default->default(compile)]
-excluding dependency: org.scala-lang#scala-library;2.7.7 {default=[default(compile)]} in default
-excluding dependency: org.scala-lang#scala-compiler;2.7.7 {default=[default(compile)]} in default
-loadData of org.scala-tools.sbt#io_2.7.7;0.7.4 of rootConf=default
-	using redefined-public to resolve org.scala-tools.sbt#io_2.7.7;0.7.4
-redefined-public: Checking cache for: dependency: org.scala-tools.sbt#io_2.7.7;0.7.4 {default=[default(compile)]}
-No entry is found in the ModuleDescriptorCache : C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\io_2.7.7\ivy-0.7.4.xml
-pre 1.3 ivy file: using exactOrRegexp as default matcher
-	found ivy file in cache for org.scala-tools.sbt#io_2.7.7;0.7.4 (resolved by sbt-db): C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\io_2.7.7\ivy-0.7.4.xml
-redefined-public: module revision found in cache: org.scala-tools.sbt#io_2.7.7;0.7.4
-	found org.scala-tools.sbt#io_2.7.7;0.7.4 in sbt-db
-== resolving dependencies org.scala-tools.sbt#io_2.7.7;0.7.4->org.scala-tools.sbt#control_2.7.7;0.7.4 [default->default(compile)]
-excluding dependency: org.scala-lang#scala-library;2.7.7 {default=[default(compile)]} in default
-excluding dependency: org.scala-lang#scala-compiler;2.7.7 {default=[default(compile)]} in default
-loadData of org.scala-tools.sbt#control_2.7.7;0.7.4 of rootConf=default
-	using redefined-public to resolve org.scala-tools.sbt#control_2.7.7;0.7.4
-redefined-public: Checking cache for: dependency: org.scala-tools.sbt#control_2.7.7;0.7.4 {default=[default(compile)]}
-No entry is found in the ModuleDescriptorCache : C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\control_2.7.7\ivy-0.7.4.xml
-pre 1.3 ivy file: using exactOrRegexp as default matcher
-	found ivy file in cache for org.scala-tools.sbt#control_2.7.7;0.7.4 (resolved by sbt-db): C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\control_2.7.7\ivy-0.7.4.xml
-redefined-public: module revision found in cache: org.scala-tools.sbt#control_2.7.7;0.7.4
-	found org.scala-tools.sbt#control_2.7.7;0.7.4 in sbt-db
-== resolving dependencies org.scala-tools.sbt#compile_2.7.7;0.7.4->org.scala-tools.sbt#classpath_2.7.7;0.7.4 [default->default(compile)]
-excluding dependency: org.scala-lang#scala-library;2.7.7 {default=[default(compile)]} in default
-excluding dependency: org.scala-lang#scala-compiler;2.7.7 {default=[default(compile)]} in default
-loadData of org.scala-tools.sbt#classpath_2.7.7;0.7.4 of rootConf=default
-	using redefined-public to resolve org.scala-tools.sbt#classpath_2.7.7;0.7.4
-redefined-public: Checking cache for: dependency: org.scala-tools.sbt#classpath_2.7.7;0.7.4 {default=[default(compile)]}
-No entry is found in the ModuleDescriptorCache : C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\classpath_2.7.7\ivy-0.7.4.xml
-pre 1.3 ivy file: using exactOrRegexp as default matcher
-	found ivy file in cache for org.scala-tools.sbt#classpath_2.7.7;0.7.4 (resolved by sbt-db): C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\classpath_2.7.7\ivy-0.7.4.xml
-redefined-public: module revision found in cache: org.scala-tools.sbt#classpath_2.7.7;0.7.4
-	found org.scala-tools.sbt#classpath_2.7.7;0.7.4 in sbt-db
-== resolving dependencies org.scala-tools.sbt#compile_2.7.7;0.7.4->org.scala-tools.sbt#compiler-interface;0.7.4 [default->default(compile)]
-excluding dependency: org.scala-lang#scala-library;2.7.7 {default=[default(compile)]} in default
-excluding dependency: org.scala-lang#scala-compiler;2.7.7 {default=[default(compile)]} in default
-loadData of org.scala-tools.sbt#compiler-interface;0.7.4 of rootConf=default
-	using redefined-public to resolve org.scala-tools.sbt#compiler-interface;0.7.4
-redefined-public: Checking cache for: dependency: org.scala-tools.sbt#compiler-interface;0.7.4 {default=[default(compile)]}
-No entry is found in the ModuleDescriptorCache : C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\compiler-interface\ivy-0.7.4.xml
-pre 1.3 ivy file: using exactOrRegexp as default matcher
-	found ivy file in cache for org.scala-tools.sbt#compiler-interface;0.7.4 (resolved by sbt-db): C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\compiler-interface\ivy-0.7.4.xml
-redefined-public: module revision found in cache: org.scala-tools.sbt#compiler-interface;0.7.4
-	found org.scala-tools.sbt#compiler-interface;0.7.4 in sbt-db
-== resolving dependencies org.scala-tools.sbt#compiler-interface;0.7.4->jline#jline;0.9.94 [default->default(compile)]
-excluding dependency: org.scala-lang#scala-library;2.7.7 {default=[default(compile)]} in default
-excluding dependency: org.scala-lang#scala-compiler;2.7.7 {default=[default(compile)]} in default
-loadData of jline#jline;0.9.94 of rootConf=default
-	using redefined-public to resolve jline#jline;0.9.94
-redefined-public: Checking cache for: dependency: jline#jline;0.9.94 {default=[default(compile)]}
-No entry is found in the ModuleDescriptorCache : C:\Users\Ken\.ivy2\cache\jline\jline\ivy-0.9.94.xml
-pre 1.3 ivy file: using exactOrRegexp as default matcher
-	found ivy file in cache for jline#jline;0.9.94 (resolved by Maven Central): C:\Users\Ken\.ivy2\cache\jline\jline\ivy-0.9.94.xml
-redefined-public: module revision found in cache: jline#jline;0.9.94
-	found jline#jline;0.9.94 in Maven Central
-== resolving dependencies org.scala-tools.sbt#compiler-interface;0.7.4->jline#jline;0.9.94 [default->runtime]
-loadData of jline#jline;0.9.94 of rootConf=default
-== resolving dependencies org.scala-tools.sbt#compiler-interface;0.7.4->jline#jline;0.9.94 [default->compile]
-loadData of jline#jline;0.9.94 of rootConf=default
-== resolving dependencies org.scala-tools.sbt#compiler-interface;0.7.4->jline#jline;0.9.94 [default->master]
-loadData of jline#jline;0.9.94 of rootConf=default
-== resolving dependencies org.scala-tools.sbt#compiler-interface;0.7.4->org.scala-tools.sbt#interface;0.7.4 [default->default(compile)]
-loadData of org.scala-tools.sbt#interface;0.7.4 of rootConf=default
-default is loaded and no conf to load.  Skip loading
-== resolving dependencies org.scala-tools.sbt#compiler-interface;0.7.4->org.scala-tools.sbt#precompiled-2.8.0.rc2_2.8.0.RC2;0.7.4 [default->default(compile)]
-excluding dependency: org.scala-lang#scala-library;2.7.7 {default=[default(compile)]} in default
-excluding dependency: org.scala-lang#scala-compiler;2.7.7 {default=[default(compile)]} in default
-loadData of org.scala-tools.sbt#precompiled-2.8.0.rc2_2.8.0.RC2;0.7.4 of rootConf=default
-	using redefined-public to resolve org.scala-tools.sbt#precompiled-2.8.0.rc2_2.8.0.RC2;0.7.4
-redefined-public: Checking cache for: dependency: org.scala-tools.sbt#precompiled-2.8.0.rc2_2.8.0.RC2;0.7.4 {default=[default(compile)]}
-No entry is found in the ModuleDescriptorCache : C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\precompiled-2.8.0.rc2_2.8.0.RC2\ivy-0.7.4.xml
-pre 1.3 ivy file: using exactOrRegexp as default matcher
-	found ivy file in cache for org.scala-tools.sbt#precompiled-2.8.0.rc2_2.8.0.RC2;0.7.4 (resolved by sbt-db): C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\precompiled-2.8.0.rc2_2.8.0.RC2\ivy-0.7.4.xml
-redefined-public: module revision found in cache: org.scala-tools.sbt#precompiled-2.8.0.rc2_2.8.0.RC2;0.7.4
-	found org.scala-tools.sbt#precompiled-2.8.0.rc2_2.8.0.RC2;0.7.4 in sbt-db
-== resolving dependencies org.scala-tools.sbt#precompiled-2.8.0.rc2_2.8.0.RC2;0.7.4->org.scala-tools.sbt#interface;0.7.4 [default->default(compile)]
-loadData of org.scala-tools.sbt#interface;0.7.4 of rootConf=default
-default is loaded and no conf to load.  Skip loading
-== resolving dependencies org.scala-tools.sbt#sbt_2.7.7;0.7.4->org.scala-tools.sbt#launcher-interface;0.7.4 [default->default(compile)]
-loadData of org.scala-tools.sbt#launcher-interface;0.7.4 of rootConf=default
-default is loaded and no conf to load.  Skip loading
-Nbr of module to sort : 14
-Sort dependencies of : org.scala-tools.sbt#sbt_2.7.7;0.7.4 / Number of dependencies = 10
-Sort dependencies of : com.jcraft#jsch;0.1.31 / Number of dependencies = 1
-Sort done for : com.jcraft#jsch;0.1.31
-Sort dependencies of : org.scala-tools.testing#test-interface;0.5 / Number of dependencies = 0
-Sort done for : org.scala-tools.testing#test-interface;0.5
-Sort dependencies of : org.apache.ivy#ivy;2.1.0 / Number of dependencies = 13
-Module descriptor is processed : com.jcraft#jsch;0.1.31
-Sort done for : org.apache.ivy#ivy;2.1.0
-Sort dependencies of : org.scala-tools.sbt#compile_2.7.7;0.7.4 / Number of dependencies = 6
-Sort dependencies of : org.scala-tools.sbt#launcher-interface;0.7.4 / Number of dependencies = 0
-Sort done for : org.scala-tools.sbt#launcher-interface;0.7.4
-Sort dependencies of : org.scala-tools.sbt#interface;0.7.4 / Number of dependencies = 0
-Sort done for : org.scala-tools.sbt#interface;0.7.4
-Sort dependencies of : org.scala-tools.sbt#ivy_2.7.7;0.7.4 / Number of dependencies = 3
-Module descriptor is processed : org.apache.ivy#ivy;2.1.0
-Module descriptor is processed : org.scala-tools.sbt#interface;0.7.4
-Module descriptor is processed : org.scala-tools.sbt#launcher-interface;0.7.4
-Sort done for : org.scala-tools.sbt#ivy_2.7.7;0.7.4
-Sort dependencies of : org.scala-tools.sbt#io_2.7.7;0.7.4 / Number of dependencies = 1
-Sort dependencies of : org.scala-tools.sbt#control_2.7.7;0.7.4 / Number of dependencies = 0
-Sort done for : org.scala-tools.sbt#control_2.7.7;0.7.4
-Sort done for : org.scala-tools.sbt#io_2.7.7;0.7.4
-Sort dependencies of : org.scala-tools.sbt#classpath_2.7.7;0.7.4 / Number of dependencies = 0
-Sort done for : org.scala-tools.sbt#classpath_2.7.7;0.7.4
-Sort dependencies of : org.scala-tools.sbt#compiler-interface;0.7.4 / Number of dependencies = 3
-Sort dependencies of : jline#jline;0.9.94 / Number of dependencies = 1
-Sort done for : jline#jline;0.9.94
-Module descriptor is processed : org.scala-tools.sbt#interface;0.7.4
-Sort dependencies of : org.scala-tools.sbt#precompiled-2.8.0.rc2_2.8.0.RC2;0.7.4 / Number of dependencies = 1
-Module descriptor is processed : org.scala-tools.sbt#interface;0.7.4
-Sort done for : org.scala-tools.sbt#precompiled-2.8.0.rc2_2.8.0.RC2;0.7.4
-Sort done for : org.scala-tools.sbt#compiler-interface;0.7.4
-Sort done for : org.scala-tools.sbt#compile_2.7.7;0.7.4
-Module descriptor is processed : org.scala-tools.sbt#launcher-interface;0.7.4
-Sort done for : org.scala-tools.sbt#sbt_2.7.7;0.7.4
-Module descriptor is processed : com.jcraft#jsch;0.1.31
-Module descriptor is processed : org.scala-tools.testing#test-interface;0.5
-Module descriptor is processed : org.apache.ivy#ivy;2.1.0
-Module descriptor is processed : org.scala-tools.sbt#compile_2.7.7;0.7.4
-Module descriptor is processed : org.scala-tools.sbt#launcher-interface;0.7.4
-Module descriptor is processed : org.scala-tools.sbt#interface;0.7.4
-Module descriptor is processed : org.scala-tools.sbt#ivy_2.7.7;0.7.4
-Module descriptor is processed : org.scala-tools.sbt#io_2.7.7;0.7.4
-Module descriptor is processed : org.scala-tools.sbt#classpath_2.7.7;0.7.4
-Module descriptor is processed : org.scala-tools.sbt#compiler-interface;0.7.4
-Module descriptor is processed : org.scala-tools.sbt#control_2.7.7;0.7.4
-Module descriptor is processed : jline#jline;0.9.94
-Module descriptor is processed : org.scala-tools.sbt#precompiled-2.8.0.rc2_2.8.0.RC2;0.7.4
-	resolved ivy file produced in C:\Users\Ken\.ivy2\cache\resolved-org.scala-tools.sbt-boot-app-1.0.xml
+Nbr of module to sort : 2
+Sort dependencies of : org.scala-lang#scala-compiler;2.8.1.RC1 / Number of dependencies = 2
+Sort dependencies of : org.scala-lang#scala-library;2.8.1.RC1 / Number of dependencies = 0
+Sort done for : org.scala-lang#scala-library;2.8.1.RC1
+Sort done for : org.scala-lang#scala-compiler;2.8.1.RC1
+Module descriptor is processed : org.scala-lang#scala-library;2.8.1.RC1
+	resolved ivy file produced in C:\Users\Ken\.ivy2\cache\resolved-org.scala-tools.sbt-boot-scala-1.0.xml
 :: downloading artifacts ::
-	[NOT REQUIRED] org.scala-tools.sbt#sbt_2.7.7;0.7.4!sbt_2.7.7.jar
-	[NOT REQUIRED] com.jcraft#jsch;0.1.31!jsch.jar
-	[NOT REQUIRED] org.scala-tools.testing#test-interface;0.5!test-interface.jar
-	[NOT REQUIRED] org.apache.ivy#ivy;2.1.0!ivy.jar
-	[NOT REQUIRED] org.scala-tools.sbt#compile_2.7.7;0.7.4!compile_2.7.7.jar
-	[NOT REQUIRED] org.scala-tools.sbt#launcher-interface;0.7.4!launcher-interface.jar
-	[NOT REQUIRED] org.scala-tools.sbt#interface;0.7.4!interface.jar
-	[NOT REQUIRED] org.scala-tools.sbt#ivy_2.7.7;0.7.4!ivy_2.7.7.jar
-	[NOT REQUIRED] org.scala-tools.sbt#io_2.7.7;0.7.4!io_2.7.7.jar
-	[NOT REQUIRED] org.scala-tools.sbt#classpath_2.7.7;0.7.4!classpath_2.7.7.jar
-	[NOT REQUIRED] org.scala-tools.sbt#compiler-interface;0.7.4!compiler-interface-bin.jar
-	[NOT REQUIRED] org.scala-tools.sbt#compiler-interface;0.7.4!compiler-interface-src.jar
-	[NOT REQUIRED] org.scala-tools.sbt#control_2.7.7;0.7.4!control_2.7.7.jar
-	[NOT REQUIRED] jline#jline;0.9.94!jline.jar
-	[NOT REQUIRED] org.scala-tools.sbt#precompiled-2.8.0.rc2_2.8.0.RC2;0.7.4!compiler-interface-bin.jar
-:: resolution report :: resolve 963ms :: artifacts dl 22ms
-Nbr of module to sort : 14
-Sort dependencies of : org.scala-tools.sbt#sbt_2.7.7;0.7.4 / Number of dependencies = 10
-Sort dependencies of : com.jcraft#jsch;0.1.31 / Number of dependencies = 1
-Sort done for : com.jcraft#jsch;0.1.31
-Sort dependencies of : org.scala-tools.testing#test-interface;0.5 / Number of dependencies = 0
-Sort done for : org.scala-tools.testing#test-interface;0.5
-Sort dependencies of : org.apache.ivy#ivy;2.1.0 / Number of dependencies = 13
-Module descriptor is processed : com.jcraft#jsch;0.1.31
-Sort done for : org.apache.ivy#ivy;2.1.0
-Sort dependencies of : org.scala-tools.sbt#compile_2.7.7;0.7.4 / Number of dependencies = 6
-Sort dependencies of : org.scala-tools.sbt#launcher-interface;0.7.4 / Number of dependencies = 0
-Sort done for : org.scala-tools.sbt#launcher-interface;0.7.4
-Sort dependencies of : org.scala-tools.sbt#interface;0.7.4 / Number of dependencies = 0
-Sort done for : org.scala-tools.sbt#interface;0.7.4
-Sort dependencies of : org.scala-tools.sbt#ivy_2.7.7;0.7.4 / Number of dependencies = 3
-Module descriptor is processed : org.apache.ivy#ivy;2.1.0
-Module descriptor is processed : org.scala-tools.sbt#interface;0.7.4
-Module descriptor is processed : org.scala-tools.sbt#launcher-interface;0.7.4
-Sort done for : org.scala-tools.sbt#ivy_2.7.7;0.7.4
-Sort dependencies of : org.scala-tools.sbt#io_2.7.7;0.7.4 / Number of dependencies = 1
-Sort dependencies of : org.scala-tools.sbt#control_2.7.7;0.7.4 / Number of dependencies = 0
-Sort done for : org.scala-tools.sbt#control_2.7.7;0.7.4
-Sort done for : org.scala-tools.sbt#io_2.7.7;0.7.4
-Sort dependencies of : org.scala-tools.sbt#classpath_2.7.7;0.7.4 / Number of dependencies = 0
-Sort done for : org.scala-tools.sbt#classpath_2.7.7;0.7.4
-Sort dependencies of : org.scala-tools.sbt#compiler-interface;0.7.4 / Number of dependencies = 3
-Sort dependencies of : jline#jline;0.9.94 / Number of dependencies = 1
-Sort done for : jline#jline;0.9.94
-Module descriptor is processed : org.scala-tools.sbt#interface;0.7.4
-Sort dependencies of : org.scala-tools.sbt#precompiled-2.8.0.rc2_2.8.0.RC2;0.7.4 / Number of dependencies = 1
-Module descriptor is processed : org.scala-tools.sbt#interface;0.7.4
-Sort done for : org.scala-tools.sbt#precompiled-2.8.0.rc2_2.8.0.RC2;0.7.4
-Sort done for : org.scala-tools.sbt#compiler-interface;0.7.4
-Sort done for : org.scala-tools.sbt#compile_2.7.7;0.7.4
-Module descriptor is processed : org.scala-tools.sbt#launcher-interface;0.7.4
-Sort done for : org.scala-tools.sbt#sbt_2.7.7;0.7.4
-Module descriptor is processed : com.jcraft#jsch;0.1.31
-Module descriptor is processed : org.scala-tools.testing#test-interface;0.5
-Module descriptor is processed : org.apache.ivy#ivy;2.1.0
-Module descriptor is processed : org.scala-tools.sbt#compile_2.7.7;0.7.4
-Module descriptor is processed : org.scala-tools.sbt#launcher-interface;0.7.4
-Module descriptor is processed : org.scala-tools.sbt#interface;0.7.4
-Module descriptor is processed : org.scala-tools.sbt#ivy_2.7.7;0.7.4
-Module descriptor is processed : org.scala-tools.sbt#io_2.7.7;0.7.4
-Module descriptor is processed : org.scala-tools.sbt#control_2.7.7;0.7.4
-Module descriptor is processed : org.scala-tools.sbt#classpath_2.7.7;0.7.4
-Module descriptor is processed : org.scala-tools.sbt#compiler-interface;0.7.4
-Module descriptor is processed : jline#jline;0.9.94
-Module descriptor is processed : org.scala-tools.sbt#precompiled-2.8.0.rc2_2.8.0.RC2;0.7.4
-	report for org.scala-tools.sbt#boot-app;1.0 default produced in C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt-boot-app-default.xml
-	resolve done (963ms resolve - 22ms download)
-:: retrieving :: org.scala-tools.sbt#boot-app
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1.jar
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1.jar
+downloading http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1.jar ...
+	Maven Central: downloading http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.8.1.RC1/scala-compiler-2.8.1.RC1.jar
+		to C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-compiler\jars\scala-compiler-2.8.1.RC1.jar.part
+	[SUCCESSFUL ] org.scala-lang#scala-compiler;2.8.1.RC1!scala-compiler.jar (76378ms)
+	 trying http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1.jar
+		tried http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1.jar
+downloading http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1.jar ...
+	Maven Central: downloading http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.8.1.RC1/scala-library-2.8.1.RC1.jar
+		to C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.8.1.RC1.jar.part
+	[SUCCESSFUL ] org.scala-lang#scala-library;2.8.1.RC1!scala-library.jar (47424ms)
+:: resolution report :: resolve 16381ms :: artifacts dl 123926ms
+Nbr of module to sort : 2
+Sort dependencies of : org.scala-lang#scala-compiler;2.8.1.RC1 / Number of dependencies = 2
+Sort dependencies of : org.scala-lang#scala-library;2.8.1.RC1 / Number of dependencies = 0
+Sort done for : org.scala-lang#scala-library;2.8.1.RC1
+Sort done for : org.scala-lang#scala-compiler;2.8.1.RC1
+Module descriptor is processed : org.scala-lang#scala-library;2.8.1.RC1
+	report for org.scala-tools.sbt#boot-scala;1.0 default produced in C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt-boot-scala-default.xml
+	resolve done (16381ms resolve - 123926ms download)
+:: retrieving :: org.scala-tools.sbt#boot-scala
 	checkUpToDate=true
-no explicit confs given for retrieve, using ivy file: C:\Users\Ken\.ivy2\cache\resolved-org.scala-tools.sbt-boot-app-1.0.xml
-using ivy parser to parse C:\Users\Ken\.ivy2\cache\resolved-org.scala-tools.sbt-boot-app-1.0.xml
+no explicit confs given for retrieve, using ivy file: C:\Users\Ken\.ivy2\cache\resolved-org.scala-tools.sbt-boot-scala-1.0.xml
+using ivy parser to parse C:\Users\Ken\.ivy2\cache\resolved-org.scala-tools.sbt-boot-scala-1.0.xml
 pre 1.3 ivy file: using exactOrRegexp as default matcher
 	confs: [default]
-	retrieving C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\launcher-interface\jars\launcher-interface-0.7.4.jar
-		to C:\Ken\Projects\ScalaSwingTreeWrapper\project\boot\scala-2.7.7\org.scala-tools.sbt\sbt\0.7.4\launcher-interface-0.7.4.jar
-	retrieving C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\interface\jars\interface-0.7.4.jar
-		to C:\Ken\Projects\ScalaSwingTreeWrapper\project\boot\scala-2.7.7\org.scala-tools.sbt\sbt\0.7.4\xsbti\interface-0.7.4.jar
-	retrieving C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\classpath_2.7.7\jars\classpath_2.7.7-0.7.4.jar
-		to C:\Ken\Projects\ScalaSwingTreeWrapper\project\boot\scala-2.7.7\org.scala-tools.sbt\sbt\0.7.4\classpath_2.7.7-0.7.4.jar
-	retrieving C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\compiler-interface\jars\compiler-interface-bin-0.7.4.jar
-		to C:\Ken\Projects\ScalaSwingTreeWrapper\project\boot\scala-2.7.7\org.scala-tools.sbt\sbt\0.7.4\compiler-interface-bin_2.7.7.final\compiler-interface-bin-0.7.4.jar
-	retrieving C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\compile_2.7.7\jars\compile_2.7.7-0.7.4.jar
-		to C:\Ken\Projects\ScalaSwingTreeWrapper\project\boot\scala-2.7.7\org.scala-tools.sbt\sbt\0.7.4\compile_2.7.7-0.7.4.jar
-	retrieving C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\precompiled-2.8.0.rc2_2.8.0.RC2\jars\compiler-interface-bin-0.7.4.jar
-		to C:\Ken\Projects\ScalaSwingTreeWrapper\project\boot\scala-2.7.7\org.scala-tools.sbt\sbt\0.7.4\compiler-interface-bin_2.8.0.RC2\compiler-interface-bin-0.7.4.jar
-	retrieving C:\Users\Ken\.ivy2\cache\org.scala-tools.testing\test-interface\jars\test-interface-0.5.jar
-		to C:\Ken\Projects\ScalaSwingTreeWrapper\project\boot\scala-2.7.7\org.scala-tools.sbt\sbt\0.7.4\test-interface-0.5.jar
-	retrieving C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\ivy_2.7.7\jars\ivy_2.7.7-0.7.4.jar
-		to C:\Ken\Projects\ScalaSwingTreeWrapper\project\boot\scala-2.7.7\org.scala-tools.sbt\sbt\0.7.4\ivy_2.7.7-0.7.4.jar
-	retrieving C:\Users\Ken\.ivy2\cache\jline\jline\jars\jline-0.9.94.jar
-		to C:\Ken\Projects\ScalaSwingTreeWrapper\project\boot\scala-2.7.7\org.scala-tools.sbt\sbt\0.7.4\compiler-interface-src\jline-0.9.94.jar
-	retrieving C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\control_2.7.7\jars\control_2.7.7-0.7.4.jar
-		to C:\Ken\Projects\ScalaSwingTreeWrapper\project\boot\scala-2.7.7\org.scala-tools.sbt\sbt\0.7.4\control_2.7.7-0.7.4.jar
-	retrieving C:\Users\Ken\.ivy2\cache\org.apache.ivy\ivy\jars\ivy-2.1.0.jar
-		to C:\Ken\Projects\ScalaSwingTreeWrapper\project\boot\scala-2.7.7\org.scala-tools.sbt\sbt\0.7.4\ivy-2.1.0.jar
-	retrieving C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\io_2.7.7\jars\io_2.7.7-0.7.4.jar
-		to C:\Ken\Projects\ScalaSwingTreeWrapper\project\boot\scala-2.7.7\org.scala-tools.sbt\sbt\0.7.4\io_2.7.7-0.7.4.jar
-	retrieving C:\Users\Ken\.ivy2\cache\com.jcraft\jsch\jars\jsch-0.1.31.jar
-		to C:\Ken\Projects\ScalaSwingTreeWrapper\project\boot\scala-2.7.7\org.scala-tools.sbt\sbt\0.7.4\jsch-0.1.31.jar
-	retrieving C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\sbt_2.7.7\jars\sbt_2.7.7-0.7.4.jar
-		to C:\Ken\Projects\ScalaSwingTreeWrapper\project\boot\scala-2.7.7\org.scala-tools.sbt\sbt\0.7.4\sbt_2.7.7-0.7.4.jar
-	retrieving C:\Users\Ken\.ivy2\cache\org.scala-tools.sbt\compiler-interface\jars\compiler-interface-src-0.7.4.jar
-		to C:\Ken\Projects\ScalaSwingTreeWrapper\project\boot\scala-2.7.7\org.scala-tools.sbt\sbt\0.7.4\compiler-interface-src\compiler-interface-src-0.7.4.jar
-	15 artifacts copied, 0 already retrieved (4096kB/913ms)
-	retrieve done (913ms)
+	retrieving C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.8.1.RC1.jar
+		to C:\Ken\Projects\ScalaSwingTreeWrapper\project\boot\scala-2.8.1.RC1\lib\scala-library.jar
+	retrieving C:\Users\Ken\.ivy2\cache\org.scala-lang\scala-compiler\jars\scala-compiler-2.8.1.RC1.jar
+		to C:\Ken\Projects\ScalaSwingTreeWrapper\project\boot\scala-2.8.1.RC1\lib\scala-compiler.jar
+	2 artifacts copied, 0 already retrieved (15115kB/374ms)
+	retrieve done (374ms)
