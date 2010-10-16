@@ -337,10 +337,6 @@ class Tree[A](private var treeDataModel: TreeModel[A] = TreeModel.empty[A])
 
     peer.getSelectionModel.addTreeSelectionListener(new TreeSelectionListener {
       def valueChanged(e: javax.swing.event.TreeSelectionEvent) {
-        println("***** e.getPaths: ")
-        e.getPaths foreach println
-        println("***** e.getPaths map treePathToPath: ")
-        e.getPaths map treePathToPath foreach println
         val (newPath, oldPath) = e.getPaths.map(treePathToPath).toList.partition(e.isAddedPath(_))
         publish(new TreePathSelected(thisTree, newPath, oldPath, 
                 Option(e.getNewLeadSelectionPath: Path[A]), 
