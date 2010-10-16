@@ -21,14 +21,15 @@ object TreeMain extends SimpleSwingApplication {
   
   lazy val tree = new Tree[Person] { 
     
-    treeData = new TreeModel[Person](persons, _.subordinates) updatableWith ((path, newValue) => path.last.name = newValue.name)
-    val td: List[Person] = treeData.iterator.toList
+    treeData = new TreeModel[Person](persons, _.subordinates) updatableWith {
+      (path, newValue) => path.last.name = newValue.name
+    }
 
     renderer = Renderer(_.name)
     
-
+    // import javax.swing.{DefaultCellEditor, JTextField}
     //editor = Editor.wrap(new DefaultCellEditor(new JTextField))
-    editor = Editor[Person, String](_.name, new Person(_, Nil))
+    editor = Editor((_:Person).name, new Person((_:String), Nil))
     
     listenTo(editor, selection, mouse.clicks)
     
