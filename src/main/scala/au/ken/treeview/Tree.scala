@@ -19,9 +19,6 @@ import Swing._
 import javax.{swing => js}
 import js.{tree => jst}
 import js.{event => jse}
-// .tree.{TreePath, TreeNode, MutableTreeNode, TreeCellRenderer, DefaultTreeCellRenderer, CellEditorListener
-//  TreeSelectionModel, TreeModel => JTreeModel, DefaultTreeModel, TreeCellEditor => JTreeCellEditor, DefaultTreeCellEditor}
-//import javax.swing.{DefaultCellEditor, AbstractCellEditor => JAbstractCellEditor}
 
 sealed trait TreeEditors extends EditableCellsCompanion {
   this: Tree.type => 
@@ -151,11 +148,18 @@ sealed trait TreeRenderers extends RenderableCellsCompanion {
     def peer: Peer = new jst.TreeCellRenderer {
       def getTreeCellRendererComponent(tree: JTree, value: AnyRef, isSelected: Boolean, isExpanded: Boolean, 
                                        isLeaf: Boolean, row: Int, hasFocus: Boolean) = {
-
-        componentFor(tree match {
-          case t: JTreeMixin[A] => t.treeWrapper
-          case _ => assert(false); null
-        }, value.asInstanceOf[A], Params(isSelected, isExpanded, isLeaf, row, hasFocus)).peer
+        
+        value match {
+          // JTree's TreeModel property change will indirectly cause the Renderer 
+          // to be activated on the root node, even if it is permanently hidden; since our underlying root node
+          // is not a suitably-typed A, we need to intercept it and return a harmless component.
+          case TreeModel.hiddenRoot => new js.JTextField
+          case a: A =>
+            componentFor(tree match {
+              case t: JTreeMixin[A] => t.treeWrapper
+              case _ => assert(false); null
+            }, a, Params(isSelected, isExpanded, isLeaf, row, hasFocus)).peer
+        }
       }
     }
   }
@@ -281,7 +285,11 @@ class Tree[A](private var treeDataModel: TreeModel[A] = TreeModel.empty[A])
     }
     override def componentFor(tree: Tree[_], a: B, p: Editor.Params): Component = {
       val c = peer.getTreeCellEditorComponent(tree.peer, a, p.isSelected, p.isExpanded, 
-          p.isLeaf, p.row).asInstanceOf[java.awt.Component] // Is actually a Component, not a JComponent
+          p.isLeaf, p.row).asInstanceOf[java.awt.Component]
+          
+      // Unfortunately the underlying editor peer returns a java.awt.Component, not a javax.swing.JComponent.
+      // Since there is currently no way to wrap a java.awt.Component in a scala.swing.Component, we need to 
+      // wrap it in a JComponent somehow.
 
       val jComp = new js.JPanel(new java.awt.GridLayout(1,1))
       jComp add c
@@ -329,6 +337,10 @@ class Tree[A](private var treeDataModel: TreeModel[A] = TreeModel.empty[A])
 
     peer.getSelectionModel.addTreeSelectionListener(new TreeSelectionListener {
       def valueChanged(e: javax.swing.event.TreeSelectionEvent) {
+        println("***** e.getPaths: ")
+        e.getPaths foreach println
+        println("***** e.getPaths map treePathToPath: ")
+        e.getPaths map treePathToPath foreach println
         val (newPath, oldPath) = e.getPaths.map(treePathToPath).toList.partition(e.isAddedPath(_))
         publish(new TreePathSelected(thisTree, newPath, oldPath, 
                 Option(e.getNewLeadSelectionPath: Path[A]), 
