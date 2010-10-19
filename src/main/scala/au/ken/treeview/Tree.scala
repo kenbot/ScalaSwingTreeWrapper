@@ -426,7 +426,6 @@ class Tree[A](private var treeDataModel: TreeModel[A] = TreeModel.empty[A])
   def selectPaths(paths: Path[A]*) { peer.setSelectionPaths(paths map pathToTreePath toArray) }
   def selectInterval(first: Int, last: Int) { peer.setSelectionInterval(first, last) }
   
-  //def rootVisible = peer.isRootVisible
   def rowCount = peer.getRowCount
   def rowHeight = peer.getRowHeight
   def largeModel = peer.isLargeModel
