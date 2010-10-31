@@ -217,15 +217,15 @@ The cell renderers are represented by separate, but similar interfaces:
 
 [Java]
 interface ListCellRenderer { // Used by both JList and JComboBox
-  Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) 
+  Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus);
 }
   
 interface TableCellRenderer {
-  Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) 
+  Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column); 
 }
 
 interface TreeCellRenderer {
-  Component getTreeCellRendererComponent(JTree tree, Object value, boolean selected, boolean expanded, boolean leaf, int row, boolean hasFocus) 
+  Component getTreeCellRendererComponent(JTree tree, Object value, boolean selected, boolean expanded, boolean leaf, int row, boolean hasFocus); 
 }
 
 Despite the different names and types, each contains essentially the same information:
@@ -334,12 +334,22 @@ CellEditor
 
 JComboBox has a separate editor interface, ComboBoxEditor, which provides functionality specific to editing the current value of the JComboBox; it doesn't operate on the same assumptions as the others.  JList cannot be edited.
 
+The CellEditor interface provides functionality to perform the steps enumerated above; like renderers, each control's editor interface has a method which must be overridden to configure and provide the editor component, shown here:
 
-  
-****************** TODO: Test the behaviour of DefaultCellEditor vs DefaultTreeCellEditor, and determine the best way to abstract them.
-- DefaultCellEditor on its own doesn't show the node's icon, and looks weird (has minimum size).  Editors should use DefaultTreeCellEditor by default, but allowing bare-metal from-scratch editors too.
+[Java]
+interface TableCellEditor extends CellEditor {
+  Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column);
+}
 
-- If Tree is to be typed, then cannot use laissez-faire editors
+interface TreeCellEditor extends CellEditor {
+  Component getTreeCellEditorComponent(JTree tree, Object value, boolean isSelected, boolean expanded, boolean leaf, int row);
+}
   
+Like the cell renderers, each one contains similar information:
+  1) The actual table/tree component itself
+  2) The value of the cell
+  3) Whether or not the cell is selected
+  4) Some coordinate to locate the cell independently (ie row/column, row)
+
 IX) BROADER DESIGN:
 

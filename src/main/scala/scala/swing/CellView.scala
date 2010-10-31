@@ -3,7 +3,8 @@ import collection._
 
 
 /**
-* Describes components that have a concept of a "cell", each of which contains a value, may be selected, and may support pluggable Renderers and Editors.
+* Describes components that have a concept of a "cell", each of which contains a value, may be selected, 
+ * and may support pluggable Renderers and Editors.
 */
 trait CellView[+A] {
   this: Component =>
@@ -11,8 +12,10 @@ trait CellView[+A] {
   def cellValues: Iterator[A]
   
   /**
-  * Provides common functionality for the `selection` object found in CellView implementation.  Each will have one or more selection sets based on different types 
-  * of cell coordinate, such as row, column, index or tree path.  All events published from `selection` objects will derive from scala.swing.event.SelectionEvent.
+  * Provides common functionality for the `selection` object found in CellView implementation.  Each 
+  * will have one or more selection sets based on different types of cell coordinate, such as row, 
+  * column, index or tree path.  All events published from `selection` objects will derive from 
+  * scala.swing.event.SelectionEvent.
   */
   trait CellSelection extends Publisher {
     /**
@@ -46,7 +49,7 @@ trait CellView[+A] {
     def count: Int
   } 
   
-  val selection: Selection
+  val selection: CellSelection
 }
 
 /**

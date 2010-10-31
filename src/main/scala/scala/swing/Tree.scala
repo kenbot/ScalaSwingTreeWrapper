@@ -339,10 +339,19 @@ class Tree[A](private var treeDataModel: TreeModel[A] = TreeModel.empty[A])
 
   /**
    *  Implicit method to produce a generic editor.
-   *  This lives in the Tree class rather than the companion object because it requires an actual javax.swing.JTree instance to be initialised.
+   *  This lives in the Tree class rather than the companion object because it requires 
+   *  an actual javax.swing.JTree instance to be initialised.
    */
   implicit def genericEditor[B] = new Editor[B] {
-    override lazy val peer: jst.TreeCellEditor = new jst.DefaultTreeCellEditor(thisTree.peer, new jst.DefaultTreeCellRenderer) {
+    // Get the current renderer if it passes for a DefaultTreeCellRenderer, or create a new one otherwise.
+    def rendererIfDefault = if (renderer != null) {
+      renderer.peer match {
+        case defRend: jst.DefaultTreeCellRenderer => defRend
+        case _ => new jst.DefaultTreeCellRenderer
+      }
+    } else new jst.DefaultTreeCellRenderer
+    
+    override lazy val peer: jst.TreeCellEditor = new jst.DefaultTreeCellEditor(thisTree.peer, rendererIfDefault) {
       listenToPeer(this)
     }
     override def componentFor(tree: Tree[_], a: B, p: Editor.Params): Component = {
