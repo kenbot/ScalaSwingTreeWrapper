@@ -19,17 +19,19 @@ object TreeMain extends SimpleSwingApplication {
   
   lazy val tree = new Tree[Person] { 
     
-    treeData = new TreeModel[Person](persons, _.subordinates) updatableWith {
+    treeData = new TreeModel[Person](persons, _.subordinates) /* updatableWith {
       (path, newValue) => val current = path.last
           current.name = newValue.name
           current
-    } 
+    } */
+    
+    //lineStyle = LineStyle.Horizontal
 
     renderer = Renderer(_.name)
     
     // import javax.swing.{DefaultCellEditor, JTextField}
     //editor = Editor.wrap(new DefaultCellEditor(new JTextField))
-    editor = Editor((_:Person).name, new Person((_:String), Nil))
+    //editor = Editor((_:Person).name, new Person((_:String), Nil))
     
     listenTo(editor, selection, mouse.clicks)
     
@@ -52,11 +54,13 @@ object TreeMain extends SimpleSwingApplication {
       if (f.isDirectory) f.listFiles.toSeq 
       else Seq()
     }
+    showsRootHandles = true
     
+    /*
     renderer = new LabelRenderer({f => 
       val iconFile = "examples/" + (if (f.isDirectory) "folder.png" else "file.png")
       (Icon(iconFile), f.getName)
-    })
+    })*/
   }
   
   lazy val fileTree = new Tree[File] {
@@ -76,7 +80,7 @@ object TreeMain extends SimpleSwingApplication {
   class CheckBoxRenderer[A](convert: A => (JIcon, Boolean)) extends Tree.AbstractRenderer[A, CheckBox](new CheckBox) {
     def this() = this(a => (null, Option(a).isDefined))
    
-    override def configure(tree: Tree[_], a: A, p: Renderer.Params) {
+    override def configure(tree: Tree[_], a: A, info: Renderer.CellInfo) {
       val (icon, selected) = convert(a)
       component.icon = icon
       component.selected = selected
@@ -87,7 +91,8 @@ object TreeMain extends SimpleSwingApplication {
     import javax.swing.tree._
     setCellEditor(new DefaultTreeCellEditor(this, new DefaultTreeCellRenderer()))
     setEditable(true)
-    
+    setRootVisible(false)
+    putClientProperty("JTree.lineStyle", "Horizontal")
     setCellRenderer(new DefaultTreeCellRenderer() {
       override def getTreeCellRendererComponent(tree: javax.swing.JTree, value: AnyRef, isSelected: Boolean, isExpanded: Boolean, 
                                        isLeaf: Boolean, row: Int, hasFocus: Boolean) = {
@@ -98,7 +103,7 @@ object TreeMain extends SimpleSwingApplication {
   }
   
   def top = new MainFrame {
-    contents = tree2
+    contents = Component wrap tree2.peer 
     
     /* listenTo(tree.editor, tree.selection, tree.mouse.clicks)
       

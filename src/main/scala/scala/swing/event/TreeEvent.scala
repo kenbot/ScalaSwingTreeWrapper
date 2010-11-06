@@ -7,6 +7,13 @@ trait TreeEvent[A] extends ComponentEvent {
   val source: Tree[A]
 }
 
+object TreeNodeSelected {
+  def unapply(any: Any) = any match {
+    case TreePathSelected(_, _, _, newPath, _) => newPath map (_.last)
+    case _ => None
+  }
+}
+
 case class TreePathSelected[A](source: Tree[A], 
         newPaths: List[Tree.Path[A]], 
         oldPaths: List[Tree.Path[A]], 

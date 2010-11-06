@@ -14,8 +14,8 @@ trait EditableCellsCompanion {
 
   trait CellEditorCompanion {
     type Peer <: JCellEditor
-    type Params
-    val emptyParams: Params
+    type CellInfo
+    val emptyCellInfo: CellInfo
     def wrap[A](e: Peer): Editor[A]
     def apply[A, B: Editor](toB: A => B, toA: B => A): Editor[A]
   }
@@ -39,7 +39,7 @@ trait EditableCellsCompanion {
       listenToPeer(this)
     }
 
-    def componentFor(owner: Owner, value: A, params: companion.Params = companion.emptyParams): Component
+    def componentFor(owner: Owner, value: A, cellInfo: companion.CellInfo = companion.emptyCellInfo): Component
     
     def cellEditable = peer.isCellEditable(null)
     def shouldSelectCell = peer.shouldSelectCell(null)

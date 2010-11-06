@@ -93,6 +93,16 @@ class TreeSpec extends Spec with ShouldMatchers  {
     }
   }
   
+  describe("Default Renderer") {
+    it("Should provide an expected result") {
+      val tree = createTreeView()
+      tree.renderer = Tree.Renderer("$" + _.value)
+      
+      tree.treeData should have size (8)
+    }
+  
+  }
+  
   describe("Editor") {
     it("should start editing when asked") {
       val tree = createTreeView()

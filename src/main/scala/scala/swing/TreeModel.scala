@@ -30,12 +30,13 @@ object TreeModel {
  * Represents tree data as a sequence of root nodes, and a function that can retrieve child nodes.  
  */
 class TreeModel[A](val roots: Seq[A], 
-                   children: A => Seq[A]) extends Iterable[A] {
+                   children: A => Seq[A]) {
   self =>
   
   import TreeModel._
-
   
+  def filter(p: A => Boolean) = new TreeModel[A](roots filter p, a => children(a) filter p)
+
   /** 
    * A function to update a value in the model, at a given path.  By default this will throw an exception; to 
    * make a TreeModel updatable, call updatableWith() to provide a new TreeModel with the specified update method.
@@ -55,13 +56,11 @@ class TreeModel[A](val roots: Seq[A],
       // If the result is actually replacing the node with a different reference object, then 
       // fire "tree structure changed".
       if (existing.isInstanceOf[AnyRef] && (existing.asInstanceOf[AnyRef] ne result.asInstanceOf[AnyRef])) {
-        //println("treeStructureChanged: " + pathToTreePath(path) + " >>> " + result)
         peer.fireTreeStructureChanged(pathToTreePath(path), result)
       }
       // If the result is a value type or is a modification of the same node reference, then
       // just fire "nodes changed".
       else {
-        //println("nodesChanged: " + pathToTreePath(path) + " >>> " + result)
         peer.fireNodesChanged(pathToTreePath(path), result)
       }
     }
@@ -76,6 +75,7 @@ class TreeModel[A](val roots: Seq[A],
     this.peer.treeModelListeners foreach self.peer.addTreeModelListener
   }
 
+  
   /**
    * Underlying tree model that exposes the tree structure to Java Swing.
    *
@@ -134,8 +134,6 @@ class TreeModel[A](val roots: Seq[A],
     }
   }
 
-  override def iterator: Iterator[A] = breadthFirstIterator
-  
   def pathToTreePath(path: Tree.Path[A]) = {
     val array = (hiddenRoot :: path).map(_.asInstanceOf[AnyRef]).toArray(ClassManifest.Object)
     new TreePath(array)
@@ -173,6 +171,8 @@ class TreeModel[A](val roots: Seq[A],
       openNodes = children(item).iterator ++ open // ++'s argument is by-name, and should not directly pass in a var
     }
   }
+  
+  def size = depthFirstIterator.size
   
 }
 
