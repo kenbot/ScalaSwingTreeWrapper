@@ -1,171 +1,139 @@
 package scala.swing.example
 
 
-import scala.xml.Node
+import scala.xml._
 import scala.swing._
 import Swing._
 import scala.swing.event._
 import Tree._
-import javax.swing.{Icon => JIcon}
+import java.awt.Color
 
 object TreeMain extends SimpleSwingApplication {
   import Tree._
   import java.io._
 
-  case class Person(var name: String, var subordinates: List[Person]) {
-    override def toString() = name + (if (subordinates.nonEmpty) "(" + subordinates.mkString(", ") + ")" else "")
-  }
-  val persons = Person("Bob", Nil) :: Person("John", List(Person("Jack", Nil), Person("Jill", List(Person("Betty", Nil))))) :: Nil
-  
-  lazy val tree = new Tree[Person] { 
-    
-    treeData = new TreeModel[Person](persons, _.subordinates) /* updatableWith {
-      (path, newValue) => val current = path.last
-          current.name = newValue.name
-          current
-    } */
-    
-    //lineStyle = LineStyle.Horizontal
-
-    renderer = Renderer(_.name)
-    
-    // import javax.swing.{DefaultCellEditor, JTextField}
-    //editor = Editor.wrap(new DefaultCellEditor(new JTextField))
-    //editor = Editor((_:Person).name, new Person((_:String), Nil))
-    
-    listenTo(editor, selection, mouse.clicks)
-    
-    reactions += {
-      case TreePathSelected(_, _, _, newSelection, _) => 
-          val last = for (p <- newSelection; last <- p.lastOption) yield last
-          println(last getOrElse "None found")
-          
-      case MouseClicked(tree, _, _, 2, _) => println("click!")
-      case CellEditingStopped(_) => println("Stopped: " + persons)
-      case CellEditingCancelled(_) => println("Cancelled: " + persons)
+  object Data {
+    // Contrived class hierarchy
+    case class Customer(id: Int, title: String, firstName: String, lastName: String)
+    case class Product(id: String, name: String, price: Double)
+    case class Order(id: Int, customer: Customer, product: Product, quantity: Int) {
+      def price = product.price * quantity
     }
-    
-    expandAll()
+
+    // Contrived example data
+    val bob = Customer(1, "Mr", "Bob", "Baxter")
+    val fred = Customer(2, "Dr", "Fred", "Finkelstein")
+    val susan = Customer(3, "Ms", "Susan", "Smithers")
+    val powerSaw = Product("X-123", "Power Saw", 99.95) 
+    val nailGun = Product("Y-456", "Nail gun", 299.95)
+    val boxOfNails = Product("Z-789", "Box of nails", 23.50)
+    val orders = List(
+      Order(1, fred, powerSaw, 1), 
+      Order(2, fred, boxOfNails, 3),
+      Order(3, bob, boxOfNails, 44),
+      Order(4, susan, nailGun, 1))
+      
+    lazy val xmlDoc: Node = try {XML load resourceFromClassloader("/scala/swing/example/sample.xml")}
+                            catch {case _ => <error> Error reading XML file. </error>}
   }
 
-  
-  val tree2 = new Tree[File] {
+        
+  // Common functionality for using files
+  trait FileTree { this: Tree[File] =>
     treeData = TreeModel(new File(".")) {f => 
       if (f.isDirectory) f.listFiles.toSeq 
       else Seq()
     }
-    showsRootHandles = true
-    
-    /*
+  
     renderer = new LabelRenderer({f => 
-      val iconFile = "examples/" + (if (f.isDirectory) "folder.png" else "file.png")
-      (Icon(iconFile), f.getName)
-    })*/
-  }
-  
-  lazy val fileTree = new Tree[File] {
-    treeData = TreeModel(new File(".")) {
-      f => if (f.isDirectory) f.listFiles.toSeq else Seq()
-    } updatableWith { 
-      (path, newValue) => val existing = path.last
-        val renamedFile = new File(existing.getParent + File.separator + newValue.getName)
-        existing renameTo renamedFile
-        renamedFile
-    }
-    renderer = Renderer(_.getName)
-    editor = Editor((_:File).getName, new File(_:String))
-    expandRow(0)
-  }
-  
-  class CheckBoxRenderer[A](convert: A => (JIcon, Boolean)) extends Tree.AbstractRenderer[A, CheckBox](new CheckBox) {
-    def this() = this(a => (null, Option(a).isDefined))
-   
-    override def configure(tree: Tree[_], a: A, info: Renderer.CellInfo) {
-      val (icon, selected) = convert(a)
-      component.icon = icon
-      component.selected = selected
-    }
-  }
-  
-  val javaTree = new javax.swing.JTree(Array[Object]("1", "2", "3", "4")) {
-    import javax.swing.tree._
-    setCellEditor(new DefaultTreeCellEditor(this, new DefaultTreeCellRenderer()))
-    setEditable(true)
-    setRootVisible(false)
-    putClientProperty("JTree.lineStyle", "Horizontal")
-    setCellRenderer(new DefaultTreeCellRenderer() {
-      override def getTreeCellRendererComponent(tree: javax.swing.JTree, value: AnyRef, isSelected: Boolean, isExpanded: Boolean, 
-                                       isLeaf: Boolean, row: Int, hasFocus: Boolean) = {
-                                       
-        super.getTreeCellRendererComponent(tree, value, isSelected, isExpanded, isLeaf, row, hasFocus)
-      }
+      val iconFile = "/scala/swing/example/" + (if (f.isDirectory) "folder.png" else "file.png")
+      val iconURL = resourceFromClassloader(iconFile) ensuring (_ != null, "Couldn't find icon " + iconFile)
+      (Icon(iconURL), f.getName)
     })
   }
-  
+
   def top = new MainFrame {
-    contents = Component wrap tree2.peer 
+    title = "Scala Swing Tree Demo"
+  
+    contents = new TabbedPane {
+      import Data._
     
-    /* listenTo(tree.editor, tree.selection, tree.mouse.clicks)
-      
-    reactions += {
-      case TreePathSelected(_, _, _, newSelection, _) => 
-          val last = for (p <- newSelection; last <- p.lastOption) yield last
-          println(last getOrElse "None found")
-          
-      case MouseClicked(tree, _, _, 2, _) => println("click!")
-      
-      case CellEditingStopped(source: CellEditor[_]) => println(source.value)
-    }*/
-  }
+      // Use case 1: Show an XML document
+      val xmlTree = new Tree[Node] {
+        treeData = TreeModel(xmlDoc)(_.child filterNot (_.text.trim.isEmpty))
+        renderer = Renderer(n => 
+            if (n.label startsWith "#") n.text.trim 
+            else n.label)
+            
+        expandAll()
+      }
 
-  def xmlSeqTree = new Tree[Node](
-    <html>
-      <body>
-        <div id="title">Yurtle the Turtle</div>
-        <div id="description">This is great for the kids.</div>
-      </body>
-    </html>, {_.child filterNot (_.text.trim.isEmpty)}) {
       
-    renderer = Renderer(n => if (n.label.startsWith("#")) n.text.trim else n.label)
-  }
-  
-  def files(f: File) = if (f.isDirectory) f.listFiles.toSeq else Seq.empty
-  
-  def filteredFiles(filter: File => Boolean)(f: File): Seq[File] = {
-      if (f.isDirectory) f.listFiles(new FileFilter {
-        def accept(file: File) = filter(file)
-      }) 
-      else Seq.empty
-  }
-  
-  def products(node: Any) = node match {
-    case s: Seq[_] => s
-    case o => Seq.empty
-  }
-  
-  def seqs(node: Any) = node match {
-    case s: Seq[_] => s
-    case o => Seq.empty
-  }
-  
-  def nestedCaseClassesTree = {
-    sealed trait Expr
-    case class Plus(a: Expr, b: Expr) extends Expr {override def toString() = a + " + " + b}
-    case class Minus(a: Expr, b: Expr) extends Expr {override def toString() = a + " - " + b}
-    case class Const(value: Int) extends Expr {override def toString() = value.toString}
-    
-    new Tree(Seq(Plus(Const(5), Minus(Const(2), Const(1)))), products)
-  }
+      // Use case 2: Show the filesystem with filter
+      val fileSystemTree = new Tree[File] with FileTree {
+        expandRow(0)
+      }
 
-  //def nestedTupleTree = new Tree(Titled("Foods", (Titled("Legumes", ("Lentils", "Chick peas")), "Fruit", "Chips")), products)
-  //def nestedListTree = new Tree(Titled("Numbers", 1 :: 2 :: 3 :: Titled("Them", (4 :: 5 :: 6 :: Nil)) :: Nil), products)
-  
-  //def nestedSeqTree = new Tree(Titled("Numbers", Seq(1, 2, 3, Titled("Them", Seq(4, 5, 6)))), seqs)
-  def infiniteFactorTree = new Tree[Int](Seq(10000), n => 1 to n filter (n % _ == 0))
+      // Use case 3: Object graph containing diverse elements, reacting to clicks
+      val objectGraphTree = new Tree[Any] {
+        treeData = TreeModel[Any](orders: _*)({
+          case o @ Order(_, cust, prod, qty) => Seq(cust, prod, "Qty" -> qty, "Cost" -> ("$" + o.price))
+          case Product(id, name, price) => Seq("ID" -> id, "Name" -> name, "Price" -> ("$" + price))
+          case Customer(id, _, first, last) => Seq("ID" -> id, "First name" -> first, "Last name" -> last)
+          case _ => Seq.empty
+        })
 
-  def filteredFileTree = new Tree[File] {
-    treeData = TreeModel(new File(".")) {
-      filteredFiles(f => f.isDirectory || f.getName.endsWith(".scala"))
+        renderer = Renderer({
+          case Order(id, _, _, 1) => "Order #" + id
+          case Order(id, _, _, qty) => "Order #" + id + " x " + qty
+          case Product(id, _, _) => "Product " + id
+          case Customer(_, title, first, last) => title + " " + first + " " + last
+          case (field, value) => field + ": " + value
+          case x => x.toString
+        })
+        
+        listenTo(selection)
+        reactions += {
+          case TreeNodeSelected(node) => println("Selected: " + node)
+        }
+        
+        expandAll()
+      }
+      
+      // Use case 4: Infinitely deep structure
+      val infiniteTree = new Tree[Int](TreeModel(1000) {n => 1 to n filter (n % _ == 0)})
+      infiniteTree expandRow 0
+      
+      // Use case 5: Editable file system
+      val editableFileSystemTree = new Tree[File] with FileTree {
+        treeData = treeData updatableWith { 
+          (path, newValue) => val existing = path.last
+            val renamedFile = new File(existing.getParent + File.separator + newValue.getName)
+            existing renameTo renamedFile
+            renamedFile
+        }
+
+        editor = Editor((_:File).getName, new File(_:String))
+        expandRow(0)
+      }
+
+      import TabbedPane.Page
+      import BorderPanel.Position._
+      
+      def northAndCenter(north: Component, center: Component) = new BorderPanel {
+        layout(north) = North
+        layout(center) = Center
+      }
+      
+      pages += new Page("1: XML file", new ScrollPane(xmlTree))
+      pages += new Page("2: File system", new ScrollPane(fileSystemTree))
+      pages += new Page("3: Diverse object graph", new ScrollPane(objectGraphTree))
+      pages += new Page("4: Infinite structure", new ScrollPane(infiniteTree))
+      pages += new Page("5: Editable file system", northAndCenter(
+        new Label("Warning! Editing will actually rename files.") {foreground = Color.red}, 
+        new ScrollPane(editableFileSystemTree)))
     }
+    
+    size = (800, 600): Dimension
   }
 }

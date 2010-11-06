@@ -73,8 +73,8 @@ object TreeDemo extends SimpleSwingApplication {
   val helpURL = getURL("TreeDemoHelp.html")
   displayURL(helpURL)
   
-  private def getURL(s: String) = resourceFromUserDirectory("src/main/resources/scala/swing/examples/" + s)
-      .toURI.toURL ensuring (_ != null, "Couldn't find file: " + s)
+  private def getURL(s: String) = resourceFromClassloader("/scala/swing/example/" + s).ensuring(
+      _ != null, "Couldn't find file: " + s).toURI.toURL 
   
   def top = new MainFrame {
     contents = new GridPanel(1, Adapt) with Reactor {
