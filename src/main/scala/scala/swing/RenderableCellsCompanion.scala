@@ -20,7 +20,7 @@ trait RenderableCellsCompanion {
   trait CellRenderer[-A] extends Publisher  { 
     val companion: CellRendererCompanion
     def peer: companion.Peer
-    def componentFor(owner: Owner, value: A, cellInfo: companion.CellInfo = companion.emptyCellInfo): Component
+    def componentFor(owner: Owner, value: A, cellInfo: companion.CellInfo): Component
   }
 }
 

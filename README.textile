@@ -3,12 +3,13 @@ h1. Scala Swing Tree Wrapper
 Ken Scambler
 
 This project provides a Scala wrapper for Java's JTree class, and aims to be suitable for eventual inclusion in the official Scala Swing library.
-The design was [[initiated|http://scala-programming-language.1934581.n4.nabble.com/scala-swing-JTree-wrapper-design-td2004809.html#a2004809]] in the Scala debate forum in February 2010.
+The design was initiated in the Scala debate forum in February 2010.
 
 Most uses of JTree are vastly simpler -- all you need to provide is the root nodes, and a function that provides the children.
 
 h3. A small, fixed tree 
 
+<pre>
 <code>
 case class Node[A](value: A, children: Node[A]*)
 val menuItems = Node("Hobbies", Node("Skateboarding"), //... etc
@@ -18,16 +19,19 @@ new Tree[TreeNode[String]] {
   renderer = Tree.Renderer(_.value)
 }
 </code>
-
+</pre>
 h3. An XML document
 
+<pre>
 <code>
 val xml: scala.xml.Node = //...
 new Tree[Node](Seq(xml), _.child filter (_.text.trim.nonEmpty))
 </code>
+</pre>
 
 h3. The file system
 
+<pre>
 <code>
 new Tree[File] {
   treeData = TreeModel(new File(".")) {f => 
@@ -35,18 +39,22 @@ new Tree[File] {
   }
 }
 </code>
+</pre>
 
 h3. Infinitely deep structure
 
+<pre>
 <code>
 // All factors of 1000, and the factors' factors, etc
 new Tree(TreeModel(1000) {n => 1 to n filter (n % _ == 0)})
 </code>
+</pre>
 
 h3. A diverse object graph
 
 With a custom renderer - they are a piece of cake too.
 
+<pre>
 <code>
 case class Customer(id: Int, title: String, firstName: String, lastName: String)
 case class Product(id: String, name: String, price: Double)
@@ -70,3 +78,4 @@ new Tree[Any] {
   })
 }
 </code>
+</pre>

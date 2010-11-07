@@ -101,7 +101,7 @@ object TreeMain extends SimpleSwingApplication {
       }
       
       // Use case 4: Infinitely deep structure
-      val infiniteTree = new Tree[Int](TreeModel(1000) {n => 1 to n filter (n % _ == 0)})
+      val infiniteTree = new Tree(TreeModel(1000) {n => 1 to n filter (n % _ == 0)})
       infiniteTree expandRow 0
       
       // Use case 5: Editable file system
@@ -132,6 +132,7 @@ object TreeMain extends SimpleSwingApplication {
       pages += new Page("5: Editable file system", northAndCenter(
         new Label("Warning! Editing will actually rename files.") {foreground = Color.red}, 
         new ScrollPane(editableFileSystemTree)))
+
     }
     
     size = (800, 600): Dimension

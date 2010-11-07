@@ -264,21 +264,12 @@ sealed trait TreeRenderers extends RenderableCellsCompanion {
     }
   }
   
-  implicit object GenericRenderer extends DefaultRenderer[Any]
-  
   /**
    * A generic renderer that uses Swing's built-in renderers. If there is no
    * specific renderer for a type, this renderer falls back to a renderer
    * that renders the string returned from an item's <code>toString</code>.
-   *
-  implicit object GenericRenderer extends Renderer[Any] {
-    override lazy val peer = new jst.DefaultTreeCellRenderer
-    def componentFor(tree: Tree[_], value: Any, info: Renderer.CellInfo): Component = {
-      val c = peer.getTreeCellRendererComponent(tree.peer, value, info.isSelected, info.isExpanded, 
-            info.isLeaf, info.row, info.hasFocus).asInstanceOf[JComponent]
-      Component.wrap(c)
-    }
-  }*/
+   */
+  implicit object GenericRenderer extends DefaultRenderer[Any]
 }
 
 object Tree extends TreeRenderers with TreeEditors { 

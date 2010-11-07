@@ -39,7 +39,7 @@ trait EditableCellsCompanion {
       listenToPeer(this)
     }
 
-    def componentFor(owner: Owner, value: A, cellInfo: companion.CellInfo = companion.emptyCellInfo): Component
+    def componentFor(owner: Owner, value: A, cellInfo: companion.CellInfo): Component
     
     def cellEditable = peer.isCellEditable(null)
     def shouldSelectCell = peer.shouldSelectCell(null)
