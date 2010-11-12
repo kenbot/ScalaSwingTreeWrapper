@@ -499,6 +499,8 @@ class Tree[A](private var treeDataModel: TreeModel[A] = TreeModel.empty[A])
   
   def startEditingAtPath(path: Path[A]) { peer.startEditingAtPath(pathToTreePath(path)) }
 
+  def getRowForLocation(x: Int, y: Int): Int = peer.getRowForLocation(x, y)
+  def getRowForPath(path: Path[A]) : Int = peer.getRowForPath(pathToTreePath(path))
   def getClosestPathForLocation(x: Int, y: Int): Path[A] = peer.getClosestPathForLocation(x, y)
   def getClosestRowForLocation(x: Int, y: Int): Int = peer.getClosestRowForLocation(x, y)
   

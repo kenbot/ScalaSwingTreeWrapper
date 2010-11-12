@@ -15,14 +15,15 @@ object TreeModel {
    */
   private[swing] case object hiddenRoot
   
+  /*
   class Node[A](private var userObj: A) {
     def children = ListBuffer[A]()
     def userObject = userObj
     def userObject_=(a: A) {userObj = a}
-  }
+  }*/
   
   
-  def empty[A] = new TreeModel[A](Seq.empty, _ => Seq.empty)
+  def empty[A] = new TreeModel[A](Seq.empty, _ => Seq.empty) // Needs to be a method rather than a val, because A is invariant.
   def apply[A](roots: A*)(children: A => Seq[A]) = new TreeModel(roots, children)
 }
 
@@ -36,7 +37,9 @@ class TreeModel[A](val roots: Seq[A],
   import TreeModel._
   
   def filter(p: A => Boolean) = new TreeModel[A](roots filter p, a => children(a) filter p)
-
+  
+  def foreach[U](f: A => U): Unit = depthFirstIterator foreach f
+  
   /** 
    * A function to update a value in the model, at a given path.  By default this will throw an exception; to 
    * make a TreeModel updatable, call updatableWith() to provide a new TreeModel with the specified update method.
@@ -50,19 +53,16 @@ class TreeModel[A](val roots: Seq[A],
   def update(path: Path[A], newValue: A) {
     val existing = path.last
     val result = updateFunc(path, newValue)
-    if (existing != result) {
-      updateFunc(path, newValue)
-      
-      // If the result is actually replacing the node with a different reference object, then 
-      // fire "tree structure changed".
-      if (existing.isInstanceOf[AnyRef] && (existing.asInstanceOf[AnyRef] ne result.asInstanceOf[AnyRef])) {
-        peer.fireTreeStructureChanged(pathToTreePath(path), result)
-      }
-      // If the result is a value type or is a modification of the same node reference, then
-      // just fire "nodes changed".
-      else {
-        peer.fireNodesChanged(pathToTreePath(path), result)
-      }
+
+    // If the result is actually replacing the node with a different reference object, then 
+    // fire "tree structure changed".
+    if (existing.isInstanceOf[AnyRef] && (existing.asInstanceOf[AnyRef] ne result.asInstanceOf[AnyRef])) {
+      peer.fireTreeStructureChanged(pathToTreePath(path), result)
+    }
+    // If the result is a value type or is a modification of the same node reference, then
+    // just fire "nodes changed".
+    else {
+      peer.fireNodesChanged(pathToTreePath(path), result)
     }
   }
 
