@@ -1,6 +1,6 @@
 package scala.swing.event
 
-import scala.swing.Tree
+import scala.swing.tree.Tree
 import scala.swing.event._
 
 trait TreeEvent[A] extends ComponentEvent {

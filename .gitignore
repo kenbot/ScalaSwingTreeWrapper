@@ -1,0 +1,6 @@
+project/boot/
+project/build/target/
+*.nppsession
+examples/
+lib_managed/
+target/

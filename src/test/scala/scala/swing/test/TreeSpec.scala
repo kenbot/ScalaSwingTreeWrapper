@@ -4,7 +4,8 @@ import org.scalatest._
 import matchers._
 import scala.swing._
 import scala.swing.event._
-
+import scala.swing.tree._
+import Tree._
 
 class TreeSpec extends Spec with ShouldMatchers  {
 

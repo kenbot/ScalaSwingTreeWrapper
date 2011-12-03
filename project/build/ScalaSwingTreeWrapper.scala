@@ -7,6 +7,7 @@ class ScalaSwingTreeWrapper(info: ProjectInfo) extends DefaultProject(info) {
   
   override def consoleInit = """
     import scala.swing._;
+    import scala.swing.tree._;
     import Swing._;
     import Tree._;
     import example._;

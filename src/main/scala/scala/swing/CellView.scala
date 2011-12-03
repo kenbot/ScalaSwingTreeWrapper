@@ -59,6 +59,7 @@ trait RenderableCells[A] {
   this: CellView[A] =>
   val companion: RenderableCellsCompanion
   def renderer: companion.Renderer[A]
+  def renderer_=(r: companion.Renderer[A]): Unit
 }
 
 /**
@@ -68,4 +69,5 @@ trait EditableCells[A]  {
   this: CellView[A] =>
   val companion: EditableCellsCompanion
   def editor: companion.Editor[A]
+  def editor_=(r: companion.Editor[A]): Unit
 }

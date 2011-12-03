@@ -1,10 +1,10 @@
-package scala.swing.test
-
+package scala.swing
+package test
 
 import scala.xml._
-import scala.swing._
 import Swing._
-import scala.swing.event._
+import swing.event._
+import swing.tree._
 import Tree._
 import java.awt.Color
 

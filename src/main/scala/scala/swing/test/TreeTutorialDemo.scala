@@ -1,7 +1,8 @@
-package scala.swing.test
+package scala.swing
+package test
 
-import scala.swing._
 import scala.swing.event._
+import scala.swing.tree._
 import Swing._
 import java.net.URL
 import GridPanel.Adapt
