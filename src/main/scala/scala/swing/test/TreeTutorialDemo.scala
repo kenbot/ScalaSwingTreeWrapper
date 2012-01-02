@@ -9,6 +9,13 @@ import GridPanel.Adapt
 import java.io.IOException
 import Tree._
 
+object TreeTutorialDemo extends SimpleSwingApplication {
+  def top = new MainFrame {
+    title = "Scala Tree Tutorial Demo"
+    contents = new TreeTutorialDemo
+  }
+}
+
 class TreeTutorialDemo extends GridPanel(1, Adapt) {
 
   case class BookInfo(book: String, filename: String) {
@@ -31,7 +38,7 @@ class TreeTutorialDemo extends GridPanel(1, Adapt) {
   )
 
   val tree = new Tree[Any] {
-    treeData = TreeModel[Any](data)(_ match {
+    model = TreeModel[Any](data)(_ match {
       case (_, list: List[Any]) => list
       case _ => Nil
     })
@@ -54,7 +61,7 @@ class TreeTutorialDemo extends GridPanel(1, Adapt) {
   }
   
       
-  val htmlPane = new EditorPane {
+  val htmlPane: EditorPane = new EditorPane {
     editable = false
   }
 
@@ -74,7 +81,7 @@ class TreeTutorialDemo extends GridPanel(1, Adapt) {
   val helpURL = getURL("TreeDemoHelp.html")
   displayURL(helpURL)
   
-  private def getURL(s: String) = getClass.getResource("/scala/swing/example/" + s).ensuring(
+  private def getURL(s: String) = getClass.getResource("/scala/swing/test/" + s).ensuring(
       _ != null, "Couldn't find file: " + s).toURI.toURL 
 
   // Layout components   

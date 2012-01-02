@@ -14,8 +14,8 @@ h3. A small, fixed tree
 case class Node[A](value: A, children: Node[A]*)
 val menuItems = Node("Hobbies", Node("Skateboarding"), //... etc
       
-new Tree[TreeNode[String]] {
-  treeData = TreeModel(menuItems)(_.children)
+new Tree[Node] {
+  model = TreeModel(menuItems)(_.children)
   renderer = Tree.Renderer(_.value)
 }
 </code>
@@ -25,7 +25,7 @@ h3. An XML document
 <pre>
 <code>
 val xml: scala.xml.Node = //...
-new Tree[Node](Seq(xml), _.child filter (_.text.trim.nonEmpty))
+new Tree(TreeModel(Seq(xml)) {_.child.filter(_.text.trim.nonEmpty)})
 </code>
 </pre>
 
@@ -34,7 +34,7 @@ h3. The file system
 <pre>
 <code>
 new Tree[File] {
-  treeData = TreeModel(new File(".")) {f => 
+  model = TreeModel(new File(".")) {f => 
     if (f.isDirectory) f.listFiles.toSeq else Seq()
   }
 }
@@ -62,12 +62,12 @@ case class Order(id: Int, customer: Customer, product: Product, quantity: Int)
 val orders: List[Order] = //...
 
 new Tree[Any] {
-  treeData = TreeModel[Any](orders: _*)({
+  model = TreeModel[Any](orders: _*) {
     case Order(_, cust, prod, qty) => Seq(cust, prod, "Qty" -> qty)
     case Product(id, name, price) => Seq("ID" -> id, "Name" -> name, "Price" -> ("$" + price))
     case Customer(id, _, first, last) => Seq("ID" -> id, "First name" -> first, "Last name" -> last)
     case _ => Seq.empty
-  })
+  }
 
   renderer = Tree.Renderer({
     case Order(id, _, _, qty) => "Order #" + id + " x " + qty
@@ -77,5 +77,59 @@ new Tree[Any] {
     case x => x.toString
   })
 }
+</code>
+</pre>
+
+
+h3. Add, edit and remove nodes on an internal model, copied from the original data.
+
+<pre>
+<code>
+val child = Node("child")
+val parent = Node("parent", child)
+val root = Node("root", parent)
+
+val tree = new Tree[Node] {
+  model = InternalTreeModel(root)(_.children)
+}
+
+// Doesn't affect the original data, because the model is internally represented.
+var child2 = Node("child2")
+tree.model(Path(root, parent, child)) = child2
+tree.model.remove(Path(root, parent, child2))
+tree.model.insertUnder(Path(root, parent), child, 0)
+tree.model.insertBefore(Path(root, parent, child), Node("before-child"))
+tree.model.insertAfter(Path(root, parent, child), Node("after-child"))
+</code>
+</pre>
+
+h3. Add, edit and remove nodes on an external model, consisting of original data.
+
+<pre>
+<code>
+val child = Node("child")
+val parent = Node("parent", child)
+val root = Node("root", parent)
+
+val tree = new Tree[Node] {
+  model = ExternalTreeModel(root)(_.children).makeUpdatableWith {
+    (pathOfFile, updatedFile) => 
+      pathOfFile.last.name = updatedFile.name; pathOfFile.last
+  }.makeInsertableWith {
+    (parentPath, fileToInsert, index) => 
+      parentPath.last.insertChild(index, fileToInsert); true
+  }.makeRemovableWith {
+    (pathToRemove) => 
+      pathToRemove.delete(); true
+  }
+}
+
+// The original data will be mutated by the given functions, because the model is externally represented.
+var child2 = Node("child2")
+tree.model(Path(root, parent, child)) = child2
+tree.model.remove(Path(root, parent, child2))
+tree.model.insertUnder(Path(root, parent), child, 0)
+tree.model.insertBefore(Path(root, parent, child), Node("before-child"))
+tree.model.insertAfter(Path(root, parent, child), Node("after-child"))
 </code>
 </pre>

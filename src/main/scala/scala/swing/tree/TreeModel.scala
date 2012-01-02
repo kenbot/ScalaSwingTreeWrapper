@@ -1,12 +1,17 @@
 package scala.swing
 package tree
 
-import javax.swing.event.{TreeModelListener, TreeModelEvent}
-import javax.swing.tree.{MutableTreeNode, TreeNode, DefaultTreeModel, TreePath, TreeModel => JTreeModel}
-import scala.reflect.ClassManifest
+import scala.Array.fallbackCanBuildFrom
 import scala.collection.mutable.ListBuffer
+import scala.reflect.ClassManifest
+import scala.swing.tree.Tree.Path
+
+import TreeModel.hiddenRoot
 import Tree.Path
-import scala.swing.event._
+import javax.swing.event.TreeModelEvent
+import javax.swing.event.TreeModelListener
+import javax.swing.{tree => jst}
+import scala.sys.error
 
 object TreeModel {
   
@@ -16,164 +21,85 @@ object TreeModel {
    */
   private[tree] case object hiddenRoot
   
-  /*
-  class Node[A](private var userObj: A) {
-    def children = ListBuffer[A]()
-    def userObject = userObj
-    def userObject_=(a: A) {userObj = a}
-  }*/
-  
-  
-  def empty[A] = new TreeModel[A](Seq.empty, _ => Seq.empty) // Needs to be a method rather than a val, because A is invariant.
-  def apply[A](roots: A*)(children: A => Seq[A]) = new TreeModel(roots, children)
+  def empty[A]: TreeModel[A] = new ExternalTreeModel[A](Seq.empty, _ => Seq.empty)
+  def apply[A](roots: A*)(children: A => Seq[A]): TreeModel[A] = new ExternalTreeModel(roots, children)
 }
 
-/**
- * Represents tree data as a sequence of root nodes, and a function that can retrieve child nodes.  
- */
-class TreeModel[A](val roots: Seq[A], 
-                   children: A => Seq[A]) {
-  self =>
-  
-  import TreeModel._
-  
-  def filter(p: A => Boolean) = new TreeModel[A](roots filter p, a => children(a) filter p)
-  
-  def foreach[U](f: A => U): Unit = depthFirstIterator foreach f
-  
-  /** 
-   * A function to update a value in the model, at a given path.  By default this will throw an exception; to 
-   * make a TreeModel updatable, call updatableWith() to provide a new TreeModel with the specified update method.
-   */
-  protected val updateFunc: (Path[A], A) => A = {
-    (_,_) => error("Update is not supported on this tree")
-  }
 
-  def getChildrenOf(parent: A): Seq[A] = children(parent)
+trait TreeModel[A] {
   
-  def update(path: Path[A], newValue: A) {
-    val existing = path.last
-    val result = updateFunc(path, newValue)
-
-    // If the result is actually replacing the node with a different reference object, then 
-    // fire "tree structure changed".
-    if (existing.isInstanceOf[AnyRef] && (existing.asInstanceOf[AnyRef] ne result.asInstanceOf[AnyRef])) {
-      peer.fireTreeStructureChanged(pathToTreePath(path), result)
-    }
-    // If the result is a value type or is a modification of the same node reference, then
-    // just fire "nodes changed".
-    else {
-      peer.fireNodesChanged(pathToTreePath(path), result)
-    }
-  }
-
+  def roots: Seq[A]
+  val peer: jst.TreeModel 
+  def getChildrenOf(parentPath: Path[A]): Seq[A]
+  def getChildPathsOf(parentPath: Path[A]): Seq[Path[A]] = getChildrenOf(parentPath).map(parentPath :+ _)
+  def filter(p: A => Boolean): TreeModel[A]
+  def map[B](f: A=>B): TreeModel[B]
+  def foreach[U](f: A=>U): Unit = depthFirstIterator foreach f
+  def isExternalModel: Boolean
+  def toInternalModel: InternalTreeModel[A]
+  
+  
+  def pathToTreePath(path: Tree.Path[A]): jst.TreePath
+  def treePathToPath(tp: jst.TreePath): Tree.Path[A]
+ 
   /**
-   * Returns a new TreeModel that is updatable with the given function. The returned TreeModel will have 
-   * the same roots and child function.
+   * Replace the item at the given path in the tree with a new value. 
+   * Events are fired as appropriate.
    */
-  def updatableWith(updater: (Path[A], A) => A): TreeModel[A] = new TreeModel(roots, children) {
-    override val updateFunc = updater
-    this.peer.treeModelListeners foreach self.peer.addTreeModelListener
-  }
-
+  def update(path: Path[A], newValue: A): Unit
+  def remove(pathToRemove: Path[A]): Boolean
+  def insertUnder(parentPath: Path[A], newValue: A, index: Int): Boolean
   
-  /**
-   * Underlying tree model that exposes the tree structure to Java Swing.
-   *
-   * This implementation of javax.swing.tree.TreeModel takes advantage of its abstract nature, so that it respects 
-   * the tree shape of the underlying structure provided by the user.
-   */
-  lazy val peer = new JTreeModel {
-    private val treeModelListenerList = ListBuffer[TreeModelListener]()
-
-    private def getChildrenOf(parent: Any) = parent match {
-      case `hiddenRoot` => roots
-      case a: A => children(a)
-    }
+  def insertBefore(path: Path[A], newValue: A): Boolean = {
+    if (path.isEmpty) throw new IllegalArgumentException("Cannot insert before empty path")
     
-    def getChild(parent: Any, index: Int): AnyRef = {
-      val ch = getChildrenOf(parent)
-      if (index >= 0 && index < ch.size) 
-        ch(index).asInstanceOf[AnyRef] 
-      else 
-        error("No child of \"" + parent + "\" found at index " + index)
-    }
-    def getChildCount(parent: Any): Int = getChildrenOf(parent).size
-    def getIndexOfChild(parent: Any, child: Any): Int = getChildrenOf(parent) indexOf child
-    def getRoot(): AnyRef = hiddenRoot
-    def isLeaf(node: Any): Boolean = getChildrenOf(node).isEmpty
-    
-    
-    def treeModelListeners: Seq[TreeModelListener] = treeModelListenerList
-    
-    def addTreeModelListener(tml: TreeModelListener) {
-      treeModelListenerList += tml
-    }
-    
-    def removeTreeModelListener(tml: TreeModelListener) {
-      treeModelListenerList -= tml
-    }
-    
-    def valueForPathChanged(path: TreePath, newValue: Any) {
-      update(treePathToPath(path), newValue.asInstanceOf[A])
-    }
-    
-    private def createEvent(path: TreePath, newValue: Any) = new TreeModelEvent(this, path, 
-        Array(getChildrenOf(path.getPath.last) indexOf newValue), 
-        Array(newValue.asInstanceOf[AnyRef]))
-    
-    def fireTreeStructureChanged(path: TreePath, newValue: Any) {
-      treeModelListenerList foreach (_.treeStructureChanged(createEvent(path, newValue)))
-    }
-    
-    def fireNodesChanged(path: TreePath, newValue: Any) {
-      treeModelListenerList foreach (_.treeNodesChanged(createEvent(path, newValue)))
-    }
-    
-    def fireNodesInserted(path: TreePath, newValue: Any, index: Int) {
-      treeModelListenerList foreach (_.treeNodesInserted(createEvent(path, newValue)))
-    }
-  }
-
-  def pathToTreePath(path: Tree.Path[A]) = {
-    val array = (hiddenRoot :: path).map(_.asInstanceOf[AnyRef]).toArray(ClassManifest.Object)
-    new TreePath(array)
+    val parentPath = path.init
+    val index = siblingsUnder(parentPath) indexOf path.last
+    insertUnder(parentPath, newValue, index)
   }
   
-  def treePathToPath(tp: TreePath): Tree.Path[A] = {
-    if (tp == null) null 
-    else tp.getPath.map(_.asInstanceOf[A]).toList.tail
-  }   
+  def insertAfter(path: Path[A], newValue: A): Boolean = {
+    if (path.isEmpty) throw new IllegalArgumentException("Cannot insert after empty path")
+    
+    val parentPath = path.init
+    val index = siblingsUnder(parentPath) indexOf path.last
+    insertUnder(parentPath, newValue, index+1)
+  }
   
+  protected def siblingsUnder(parentPath: Path[A]) = if (parentPath.isEmpty) roots 
+                                                     else getChildrenOf(parentPath)
+  
+
   /**
    * Iterates sequentially through each item in the tree, either in breadth-first or depth-first ordering, 
    * as decided by the abstract pushChildren() method.
    */
   private trait TreeIterator extends Iterator[A] {
-    protected var openNodes: Iterator[A] = roots.iterator
+    protected var openNodes: Iterator[Path[A]] = roots.map(Path(_)).iterator
 
-    def pushChildren(item: A): Unit
+    def pushChildren(path: Path[A]): Unit
     def hasNext = openNodes.nonEmpty
     def next() = if (openNodes.hasNext) {
-      val item = openNodes.next
-      pushChildren(item)
-      item
+      val path = openNodes.next
+      pushChildren(path)
+      path.last
     }
     else error("No more items")
   }
   
   def breadthFirstIterator: Iterator[A] = new TreeIterator {
-    override def pushChildren(item: A) {openNodes ++= children(item).iterator}
+    override def pushChildren(path: Path[A]) {openNodes ++= getChildPathsOf(path).toIterator}
   }
   
   def depthFirstIterator: Iterator[A] = new TreeIterator {
-    override def pushChildren(item: A) {
+    override def pushChildren(path: Path[A]) {
       val open = openNodes
-      openNodes = children(item).iterator ++ open // ++'s argument is by-name, and should not directly pass in a var
+      openNodes = getChildPathsOf(path).toIterator ++ open // ++'s argument is by-name, and should not directly pass in a var
     }
   }
   
   def size = depthFirstIterator.size
   
+  def unpackNode(node: Any): A = node.asInstanceOf[A]
 }
 

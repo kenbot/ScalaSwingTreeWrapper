@@ -1,6 +1,13 @@
+/*                     __                                               *\
+**     ________ ___   / /  ___     Scala API                            **
+**    / __/ __// _ | / /  / _ |    (c) 2007-2010, LAMP/EPFL             **
+**  __\ \/ /__/ __ |/ /__/ __ |    http://scala-lang.org/               **
+** /____/\___/_/ |_/____/_/ | |                                         **
+**                          |/                                          **
+\*                                                                      */
+
 package scala.swing
 import collection._
-
 
 /**
 * Describes components that have a concept of a "cell", each of which contains a value, may be selected, 
@@ -8,6 +15,7 @@ import collection._
 */
 trait CellView[+A] {
   this: Component =>
+    
   def editable: Boolean 
   def cellValues: Iterator[A]
   
@@ -25,8 +33,8 @@ trait CellView[+A] {
     protected abstract class SelectionSet[S](a: => Seq[S]) extends mutable.Set[S] { 
       def -=(s: S): this.type 
       def +=(s: S): this.type
-      def --=(ss: Seq[S]): this.type 
-      def ++=(ss: Seq[S]): this.type
+      def --=(nn: Seq[S]): this.type = { nn foreach -=; this }
+      def ++=(nn: Seq[S]): this.type = { nn foreach +=; this }
       override def size = nonNullOrEmpty(a).length
       def contains(s: S) = nonNullOrEmpty(a) contains s
       def iterator = nonNullOrEmpty(a).iterator

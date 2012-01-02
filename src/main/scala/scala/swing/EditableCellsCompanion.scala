@@ -1,10 +1,21 @@
+/*                     __                                               *\
+**     ________ ___   / /  ___     Scala API                            **
+**    / __/ __// _ | / /  / _ |    (c) 2007-2010, LAMP/EPFL             **
+**  __\ \/ /__/ __ |/ /__/ __ |    http://scala-lang.org/               **
+** /____/\___/_/ |_/____/_/ | |                                         **
+**                          |/                                          **
+\*                                                                      */
+
 package scala.swing
 
 import scala.swing.event._
 import javax.swing.{CellEditor => JCellEditor, AbstractCellEditor => JAbstractCellEditor}
 import javax.swing.event.{CellEditorListener, ChangeEvent}
 
-
+/**
+* Describes the structure of a component's companion object where pluggable cell editors must be supported.
+* @author Ken Scambler
+*/
 trait EditableCellsCompanion {
   type Editor[A] <: CellEditor[A]
   protected type Owner <: Component with CellView[_]
@@ -24,13 +35,13 @@ trait EditableCellsCompanion {
     val companion: CellEditorCompanion
     def peer: companion.Peer
 
-    protected def fireCellEditingCancelled() {publish(CellEditingCancelled(CellEditor.this))}
-    protected def fireCellEditingStopped() {publish(CellEditingStopped(CellEditor.this))}
+    protected def fireCellEditingCancelled() { publish(CellEditingCancelled(CellEditor.this)) }
+    protected def fireCellEditingStopped() { publish(CellEditingStopped(CellEditor.this)) }
 
     protected def listenToPeer(p: JCellEditor) {
       p.addCellEditorListener(new CellEditorListener {
-        override def editingCanceled(e: ChangeEvent) {fireCellEditingCancelled()}
-        override def editingStopped(e: ChangeEvent) {fireCellEditingStopped()}
+        override def editingCanceled(e: ChangeEvent) { fireCellEditingCancelled() }
+        override def editingStopped(e: ChangeEvent) { fireCellEditingStopped() }
       })
     }
 
