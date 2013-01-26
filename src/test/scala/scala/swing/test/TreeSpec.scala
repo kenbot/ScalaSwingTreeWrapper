@@ -13,30 +13,30 @@ import Tree._
 @RunWith(classOf[JUnitRunner])
 class TreeSpec extends Spec with ShouldMatchers  {
 
-  case class Node[A](var value: A, var children: Node[A]*) {
+  case class Node[A](var value: A, children: Seq[Node[A]] = Nil) {
     override def toString() = value.toString
   }
 
   val dataTree = 
-    Node("Hobbies", 
+    Node("Hobbies", Seq(
       Node("Skateboarding"), 
-      Node("Indoor", 
-        Node("Chess", 
+      Node("Indoor", Seq(
+        Node("Chess", Seq(
           Node("Chinese"), 
-          Node("International")),
-        Node("Draughts")),
-      Node("Spelunking"))
+          Node("International"))),
+        Node("Draughts"))),
+      Node("Spelunking")))
   
   val (hobbies, skateboarding, indoor, chess, chinese, international, draughts, spelunking) = 
     dataTree match {
-      case a @ Node("Hobbies", 
-        b @ Node("Skateboarding"), 
-        c @ Node("Indoor", 
-          d @ Node("Chess", 
-            e @ Node("Chinese"), 
-            f @ Node("International")),
-          g @ Node("Draughts")),
-        h @ Node("Spelunking")) => (a, b, c, d, e, f, g, h)
+      case a @ Node("Hobbies", Seq(
+        b @ Node("Skateboarding", Seq()),
+        c @ Node("Indoor", Seq(
+          d @ Node("Chess", Seq(
+            e @ Node("Chinese", Seq()),
+            f @ Node("International", Seq()))),
+          g @ Node("Draughts", Seq()))),
+        h @ Node("Spelunking", Seq()))) => (a, b, c, d, e, f, g, h)
     }
   
   def createTreeView() = new Tree[Node[String]] {
