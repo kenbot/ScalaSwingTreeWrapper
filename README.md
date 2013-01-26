@@ -1,4 +1,4 @@
-h1. Scala Swing Tree Wrapper 
+# Scala Swing Tree Wrapper 
 
 Ken Scambler
 
@@ -7,7 +7,7 @@ The design was initiated in the Scala debate forum in February 2010.
 
 Most uses of JTree are vastly simpler -- all you need to provide is the root nodes, and a function that provides the children.
 
-h3. A small, fixed tree 
+### A small, fixed tree 
 
 <pre>
 <code>
@@ -20,7 +20,8 @@ new Tree[Node] {
 }
 </code>
 </pre>
-h3. An XML document
+
+### An XML document
 
 <pre>
 <code>
@@ -29,7 +30,7 @@ new Tree(TreeModel(Seq(xml)) {_.child.filter(_.text.trim.nonEmpty)})
 </code>
 </pre>
 
-h3. The file system
+### The file system
 
 <pre>
 <code>
@@ -41,7 +42,7 @@ new Tree[File] {
 </code>
 </pre>
 
-h3. Infinitely deep structure
+### Infinitely deep structure
 
 <pre>
 <code>
@@ -50,7 +51,7 @@ new Tree(TreeModel(1000) {n => 1 to n filter (n % _ == 0)})
 </code>
 </pre>
 
-h3. A diverse object graph
+### A diverse object graph
 
 With a custom renderer - they are a piece of cake too.
 
@@ -81,7 +82,7 @@ new Tree[Any] {
 </pre>
 
 
-h3. Add, edit and remove nodes on an internal model, copied from the original data.
+### Add, edit and remove nodes on an internal model, copied from the original data.
 
 <pre>
 <code>
@@ -103,7 +104,7 @@ tree.model.insertAfter(Path(root, parent, child), Node("after-child"))
 </code>
 </pre>
 
-h3. Add, edit and remove nodes on an external model, consisting of original data.
+### Add, edit and remove nodes on an external model, consisting of original data.
 
 <pre>
 <code>
