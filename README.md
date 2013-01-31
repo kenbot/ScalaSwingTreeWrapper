@@ -4,8 +4,10 @@
 > 
 > You can include in your Scala 2.10 project it by adding this to your build.sbt:
 > > libraryDependencies += "com.github.benhutchison" % "scalaswingcontrib" % "1.4"
+>
 > or for 2.9: 
 > > libraryDependencies += "com.github.benhutchison" % "scalaswingcontrib" % "1.3"
+>
 
 This project provides a Scala wrapper for Java's JTree class.
 
