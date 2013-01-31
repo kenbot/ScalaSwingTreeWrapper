@@ -1,9 +1,13 @@
-# Scala Swing Tree Wrapper 
 
-Ken Scambler
+> #Note
+> This project going forward will be maintained as part of [scalaswingcontrib](https://github.com/benhutchison/ScalaSwingContrib) and not this repo.
+> 
+> You can include in your Scala 2.10 project it by adding this to your build.sbt:
+> > libraryDependencies += "com.github.benhutchison" % "scalaswingcontrib" % "1.4"
+> or for 2.9: 
+> > libraryDependencies += "com.github.benhutchison" % "scalaswingcontrib" % "1.3"
 
-This project provides a Scala wrapper for Java's JTree class, and aims to be suitable for eventual inclusion in the official Scala Swing library.
-The design was initiated in the Scala debate forum in February 2010.
+This project provides a Scala wrapper for Java's JTree class.
 
 Most uses of JTree are vastly simpler -- all you need to provide is the root nodes, and a function that provides the children.
 
