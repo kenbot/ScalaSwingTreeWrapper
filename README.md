@@ -1,11 +1,15 @@
-#Note: moved to scalaswingcontrib
+#Note
 This project going forward will be maintained as part of [scalaswingcontrib](https://github.com/benhutchison/ScalaSwingContrib) and not this repo.
 
 You can include in your Scala 2.10 project it by adding this to your build.sbt:
- ```scala libraryDependencies += "com.github.benhutchison" % "scalaswingcontrib" % "1.4" ```
+ ```scala 
+ libraryDependencies += "com.github.benhutchison" % "scalaswingcontrib" % "1.4" 
+ ```
 
  or for 2.9: 
- ```scala libraryDependencies += "com.github.benhutchison" % "scalaswingcontrib" % "1.3" ```
+ ```scala 
+ libraryDependencies += "com.github.benhutchison" % "scalaswingcontrib" % "1.3" 
+ ```
 
 -------------------------------------
 
