@@ -1,13 +1,13 @@
+#Note: moved to scalaswingcontrib
+This project going forward will be maintained as part of [scalaswingcontrib](https://github.com/benhutchison/ScalaSwingContrib) and not this repo.
 
-> #Note
-> This project going forward will be maintained as part of [scalaswingcontrib](https://github.com/benhutchison/ScalaSwingContrib) and not this repo.
-> 
-> You can include in your Scala 2.10 project it by adding this to your build.sbt:
-> > libraryDependencies += "com.github.benhutchison" % "scalaswingcontrib" % "1.4"
->
-> or for 2.9: 
-> > libraryDependencies += "com.github.benhutchison" % "scalaswingcontrib" % "1.3"
->
+You can include in your Scala 2.10 project it by adding this to your build.sbt:
+ ```scala libraryDependencies += "com.github.benhutchison" % "scalaswingcontrib" % "1.4" ```
+
+ or for 2.9: 
+ ```scala libraryDependencies += "com.github.benhutchison" % "scalaswingcontrib" % "1.3" ```
+
+-------------------------------------
 
 This project provides a Scala wrapper for Java's JTree class.
 
@@ -15,8 +15,7 @@ Most uses of JTree are vastly simpler -- all you need to provide is the root nod
 
 ### A small, fixed tree 
 
-<pre>
-<code>
+```scala
 case class Node[A](value: A, children: Node[A]*)
 val menuItems = Node("Hobbies", Node("Skateboarding"), //... etc
       
@@ -24,45 +23,37 @@ new Tree[Node] {
   model = TreeModel(menuItems)(_.children)
   renderer = Tree.Renderer(_.value)
 }
-</code>
-</pre>
+```
 
 ### An XML document
 
-<pre>
-<code>
+```scala
 val xml: scala.xml.Node = //...
 new Tree(TreeModel(Seq(xml)) {_.child.filter(_.text.trim.nonEmpty)})
-</code>
-</pre>
+```
 
 ### The file system
 
-<pre>
-<code>
+```scala
 new Tree[File] {
   model = TreeModel(new File(".")) {f => 
     if (f.isDirectory) f.listFiles.toSeq else Seq()
   }
 }
-</code>
-</pre>
+```
 
 ### Infinitely deep structure
 
-<pre>
-<code>
+```scala
 // All factors of 1000, and the factors' factors, etc
 new Tree(TreeModel(1000) {n => 1 to n filter (n % _ == 0)})
-</code>
-</pre>
+```
 
 ### A diverse object graph
 
 With a custom renderer - they are a piece of cake too.
 
-<pre>
-<code>
+```scala
 case class Customer(id: Int, title: String, firstName: String, lastName: String)
 case class Product(id: String, name: String, price: Double)
 case class Order(id: Int, customer: Customer, product: Product, quantity: Int)
@@ -84,14 +75,12 @@ new Tree[Any] {
     case x => x.toString
   })
 }
-</code>
-</pre>
+```
 
 
 ### Add, edit and remove nodes on an internal model, copied from the original data.
 
-<pre>
-<code>
+```scala
 val child = Node("child")
 val parent = Node("parent", child)
 val root = Node("root", parent)
@@ -107,13 +96,11 @@ tree.model.remove(Path(root, parent, child2))
 tree.model.insertUnder(Path(root, parent), child, 0)
 tree.model.insertBefore(Path(root, parent, child), Node("before-child"))
 tree.model.insertAfter(Path(root, parent, child), Node("after-child"))
-</code>
-</pre>
+```
 
 ### Add, edit and remove nodes on an external model, consisting of original data.
 
-<pre>
-<code>
+```scala
 val child = Node("child")
 val parent = Node("parent", child)
 val root = Node("root", parent)
@@ -138,5 +125,4 @@ tree.model.remove(Path(root, parent, child2))
 tree.model.insertUnder(Path(root, parent), child, 0)
 tree.model.insertBefore(Path(root, parent, child), Node("before-child"))
 tree.model.insertAfter(Path(root, parent, child), Node("after-child"))
-</code>
-</pre>
+```
